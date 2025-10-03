@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/03 17:16:41 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/10/03 17:25:06 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ Fixed::Fixed(const float numb)
 
 	std::cout << "Float constructor called" << std::endl;
 	temp = (int)numb;
-	ret = 255 * (numb - temp);
+	ret = 256 * (float)(numb - temp);
+	// std::cout << numb << ' ' << numb (numb - temp) << std::endl;
 	setRawBits((temp << 8) + ret);
 }
 
@@ -55,14 +56,10 @@ float Fixed::toFloat( void ) const
 
 	temp = 1;
 	ret = this->toInt();
-		// std::cout << "\t\twtf\n" << temp << value; 
 	for (int i = 8; i > 0; i--)
 	{
 		if (temp & value)
-		{
-			std::cout << (float)(1 / pow(2, i)) << " i is=" << i << std::endl; 
 			ret += (float)(1 / pow(2, i));
-		}
 		temp = temp << 1;
 	}
 	return (ret);
