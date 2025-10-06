@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/03 15:47:51 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:31:56 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ Fixed::~Fixed()
 	value = 0;
 }
 
-Fixed&	Fixed::operator=(const Fixed& obj)
+void	Fixed::operator=(const Fixed& obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (&obj != this)
-		this->value = obj.getRawBits();
-	return (*this);
+	this->value = obj.getRawBits();
 }

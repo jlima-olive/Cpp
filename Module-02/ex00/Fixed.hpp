@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:22 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/03 15:46:56 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:31:39 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ private:
 public:
 	Fixed();
 	Fixed(const Fixed &obj);
-	Fixed&	operator=(const Fixed& obj);
+	void	operator=(const Fixed& obj);
 	~Fixed();
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
