@@ -6,7 +6,7 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/06 10:01:41 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/06 11:34:38 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ Fixed::Fixed(const float numb)
 
 	std::cout << "Float constructor called" << std::endl;
 	temp = numb;
-	ret = 256 * (float)(numb - temp) + 1;
-	// std::cout << numb << ' ' << temp << ' ' << (numb - temp) << std::endl;
+	ret = 255 * (float)(numb - temp) + 1;
 	setRawBits((temp << 8) + ret);
 }
 
@@ -67,7 +66,7 @@ float Fixed::toFloat( void ) const
 
 int Fixed::toInt( void ) const {	return (value >> 8);	}
 
-std::basic_ostream<char>& operator<<(std::basic_ostream<char> &out, const Fixed &obj)
+std::ostream& operator<<(std::ostream &out, const Fixed &obj)
 {
 	out << obj.toFloat();
 	return (out);
@@ -92,3 +91,110 @@ void	Fixed::operator=(const Fixed& obj)
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->value = obj.getRawBits();
 }
+
+int	Fixed::operator>(const Fixed& obj)
+{
+	return (this->toFloat() > obj.toFloat());
+}
+
+int	Fixed::operator<(const Fixed& obj)
+{
+	return (this->toFloat() < obj.toFloat());
+}
+
+int	Fixed::operator>=(const Fixed& obj)
+{
+	return (this->toFloat() >= obj.toFloat());
+}
+
+int	Fixed::operator<=(const Fixed& obj)
+{
+	return (this->toFloat() <= obj.toFloat());
+}
+
+int	Fixed::operator==(const Fixed& obj)
+{
+	return (this->toFloat() == obj.toFloat());
+}
+
+int	Fixed::operator!=(const Fixed& obj)
+{
+	return (this->toFloat() != obj.toFloat());
+}
+
+float	Fixed::operator+(const Fixed& obj)
+{
+	return (this->toFloat() + obj.toFloat());
+}
+
+float	Fixed::operator-(const Fixed& obj)
+{
+	return (this->toFloat() - obj.toFloat());
+}
+
+float	Fixed::operator*(const Fixed& obj)
+{
+	return (this->toFloat() * obj.toFloat());
+}
+
+float	Fixed::operator/(const Fixed& obj)
+{
+	return (this->toFloat() / obj.toFloat());
+}
+
+ float	Fixed::operator++(int)
+{
+	float	temp(this->toFloat());
+
+	this->value = this->value + 1;
+	return (temp);
+}
+
+float	Fixed::operator++()
+{
+	this->value = this->value + 1;
+	return (this->toFloat());	
+}
+
+float	Fixed::operator--(int)
+{
+	float	temp(this->toFloat());
+
+	this->value = this->value - 1;
+	return (temp);
+}
+
+float	Fixed::operator--()
+{
+	this->value = this->value - (float)(1 / 256);
+	return (this->toFloat());
+}
+
+const Fixed	&Fixed::max(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.toFloat() < obj2.toFloat())
+		return (obj2);
+	return (obj1);
+}
+
+const Fixed	&Fixed::min(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.toFloat() < obj2.toFloat())
+		return (obj1);
+	return (obj2);
+}
+
+Fixed	&Fixed::max( Fixed& obj1,  Fixed& obj2)
+{
+	if (obj1 < obj2)
+		return (obj2);
+	return (obj1);
+}
+
+Fixed	&Fixed::min( Fixed& obj1,  Fixed& obj2)
+{
+	if (obj1 < obj2)
+		return (obj1);
+	return (obj2);
+}
+
