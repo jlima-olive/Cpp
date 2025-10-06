@@ -1,0 +1,4 @@
+*.o
+*.a
+*zombie
+*main
