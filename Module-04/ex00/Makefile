@@ -4,7 +4,7 @@ NAME		= ${PROJ}.a
 
 CXX			= c++
 
-SRC_FILES	= ${PROJ}.cpp ClapTrap.cpp
+SRC_FILES	= ${PROJ}.cpp Dog.cpp Cat.cpp Animal.cpp 
 
 OBJ_FILES	= ${SRC_FILES:.cpp=.o}
 
@@ -14,8 +14,8 @@ CXXFLAGS	= -std=c++98 -Wall -Wextra -Werror
 
 all: $(PROJ)
 
-$(PROJ): ${SRC_FILES} ${OBJ_FILES} Makefile
-	$(CXX) ${CXXFLAGS} ${OBJ_FILES} -o ${PROJ}
+$(PROJ): ${SRC_FILES} ${OBJ_FILES}
+	$(CXX) ${OBJ_FILES} -o ${PROJ}
 
 clean:
 	rm -fr $(OBJ_FILES)

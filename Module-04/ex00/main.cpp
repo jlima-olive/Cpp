@@ -5,26 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 17:05:01 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/06 17:20:37 by namejojo         ###   ########.fr       */
+/*   Created: 2025/10/06 14:01:30 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/06 14:08:34 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-int main(void)
+int main()
 {
-    ClapTrap *clap1 = new ClapTrap("jojo", 10, 10, 10);
-    delete (clap1);
-    ClapTrap clap_def;
-    ClapTrap clap_cpy(clap_def);
-    clap1 = new ClapTrap("jojo", 10, 10, 10);
-
-    for(int i = 0; i < 15; i++)
-        clap1->attack("jojo");
-    clap_cpy.attack(clap_def.getName());
-    delete (clap1);
-    clap1 = new ClapTrap("jojo", 0, 10, 0);
-    for(int i = 0; i < 15; i++)
-        clap1->attack("definetly not jojo");
+const Animal* meta = new Animal();
+const Animal* j = new Dog();
+const Animal* i = new Cat();
+std::cout << j->getType() << " " << std::endl;
+std::cout << i->getType() << " " << std::endl;
+i->makeSound(); //will output the cat sound!
+j->makeSound();
+meta->makeSound();
+// ...
+return 0;
 }
