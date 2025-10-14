@@ -6,7 +6,7 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:53:31 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/06 17:29:19 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/06 18:05:07 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void ClapTrap::takeDamage(unsigned int amount)
 	}
 	std::cout << "ClapTrap " << name << " got attacked for "
 		  << amount << " points of damage!" << std::endl;
-	if (amount < hp && amount >= 0)
+	if (amount < hp)
 		hp -= amount;
-	else if (amount >= 0)
+    else
 		hp = 0;
 }
 
@@ -67,14 +67,14 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::ClapTrap() :
 name("ClapTrap"),
-hp(10),
-energy(10),
-dps(0)
+hp(100),
+energy(50),
+dps(20)
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;	
 }
 
-ClapTrap::ClapTrap(std::string name, int hp, int energy, int dps) :
+ClapTrap::ClapTrap(std::string name, unsigned hp, unsigned energy, unsigned dps) :
 name(name),
 hp(hp),
 energy(energy),
