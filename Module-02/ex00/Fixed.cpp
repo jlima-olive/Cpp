@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
+/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/03 15:31:56 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/10/14 18:00:04 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Fixed::Fixed(const Fixed &obj)
 
 Fixed::~Fixed()
 {
-	std::cout << "Default desstructor called" << std::endl;
+	std::cout << "Default destructor called" << std::endl;
 	value = 0;
 }
 

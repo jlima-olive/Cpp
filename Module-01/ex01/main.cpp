@@ -7,7 +7,5 @@ int main(void)
     int     num = 10;
 
     zombies = zombieHorde(num, "name");
-    for (int i = 0; i < num; i++)
-        zombies[i].announce();
     delete[] zombies;
 }

@@ -10,7 +10,7 @@ OBJ_FILES	= ${SRC_FILES:.cpp=.o}
 
 AR			= ar rcs
 
-CXXFLAGS	= -Wall -Wextra -Werror #-std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 all: $(PROJ)
 

@@ -6,7 +6,7 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:54:37 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/06 19:14:51 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/14 18:27:03 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class ClapTrap
 {
 protected:
-	std::string		name;
-	unsigned int	hp;
-	unsigned int	energy;
-	unsigned int	dps;
+	std::string name;
+	unsigned	hp;
+	unsigned	energy;
+	unsigned	dps;
 public:
 	std::string getName(void);
 	ClapTrap();
