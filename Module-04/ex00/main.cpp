@@ -5,24 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 14:01:30 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/06 14:08:34 by namejojo         ###   ########.fr       */
+/*   Created: 2025/10/18 13:00:23 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/18 13:01:36 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "Animal.hpp"
 
-int main()
+int	main(void)
 {
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-j->makeSound();
-meta->makeSound();
-// ...
-return 0;
+	
 }
