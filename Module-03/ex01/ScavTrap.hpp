@@ -6,7 +6,7 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:25:28 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/14 19:33:29 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/18 11:04:50 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 	ScavTrap();
 	ScavTrap(std::string name, unsigned hp, unsigned energy, unsigned dps);
 	ScavTrap(const ScavTrap &obj);
+	ScavTrap	&operator=(const ScavTrap &obj);
 	void	takeDamage(unsigned int amount);
 	void	guardGate();
 	~ScavTrap();

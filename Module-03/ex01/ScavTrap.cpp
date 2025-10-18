@@ -6,7 +6,7 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/14 19:33:23 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/18 11:05:15 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ defense(0)
 	std::cout << "ScavTrap copy constructor called" << std::endl;	
 }
 
-
 ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
 {
 	this->name = obj.name;
@@ -52,19 +51,19 @@ ScavTrap::~ScavTrap()
 void ScavTrap::guardGate()
 {
 	defense = 1;
-	std::cout << "ScavTrap " << name << "is in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << name << " is in Gate keeper mode" << std::endl;
 }
 
 void ScavTrap::takeDamage(unsigned int amount)
 {
 	if (hp <= 0)
 	{
-		std::cout << "ScavTrap " << name << "is already dead" << std::endl;
+		std::cout << "ScavTrap " << name << " is already dead" << std::endl;
 		return ;
 	}
 	if (defense)
 	{
-		std::cout << "ScavTrap " << name << "is in Gate keeper mode"
+		std::cout << "ScavTrap " << name << " is in Gate keeper mode"
 				  << " so he didnt take damage" << std::endl;
 		defense = 0;
 		return ;

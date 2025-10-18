@@ -6,7 +6,7 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:53:31 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/14 18:21:47 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/18 11:06:39 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (hp <= 0)
 	{
-		std::cout << "ClapTrap " << name << "is too dead to do anything" << std::endl;
+		std::cout << "ClapTrap " << name << " is too dead to do anything" << std::endl;
 		return ;
 	}
 	if (energy <= 0)
 	{
-		std::cout << "ClapTrap " << name << "is too tired to do anything" << std::endl;
+		std::cout << "ClapTrap " << name << " is too tired to do anything" << std::endl;
 		return ;
 	}
 	energy--;
@@ -38,7 +38,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (hp <= 0)
 	{
-		std::cout << "ClapTrap " << name << "is already dead" << std::endl;
+		std::cout << "ClapTrap " << name << " is already dead" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << name << " got attacked for "
