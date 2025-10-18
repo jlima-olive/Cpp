@@ -6,11 +6,11 @@
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:05:01 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 11:20:11 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/18 12:30:22 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
@@ -32,19 +32,19 @@ int main(void)
     //     clap1->attack("definetly not jojo");
     /*******************************************************************************/
     std::cout << std::endl << std::endl;
-    ScavTrap *slap1 = new ScavTrap("jojo", 10, 10, 10);
+    DiamondTrap *slap1 = new DiamondTrap("jojo", 10, 10, 10);
     delete (slap1);
-    ScavTrap slap_def;
-    ScavTrap slap_def2 = slap_def;
-    ScavTrap slap_cpy(slap_def);
-    slap1 = new ScavTrap("jojo", 10, 10, 10);
+    DiamondTrap slap_def;
+    DiamondTrap slap_def2 = slap_def;
+    DiamondTrap slap_cpy(slap_def);
+    slap1 = new DiamondTrap("jojo", 10, 10, 10);
 
     slap_def2 = slap_def;
     for(int i = 0; i < 15; i++)
         slap1->attack("jojo");
     slap_cpy.attack(slap_def.getName());
     delete (slap1);
-    slap1 = new ScavTrap("jojo", 0, 10, 0);
+    slap1 = new DiamondTrap("jojo", 0, 10, 0);
     for(int i = 0; i < 5; i++)
         slap1->attack("definetly not jojo");
     slap1->guardGate();
