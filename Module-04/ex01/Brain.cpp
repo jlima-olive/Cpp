@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Brain.hpp"
 
-void	Animal::makeSound(void) const
+Brain::Brain()
 {
-	std::cout << sound << std::endl;
+	ideas = new std::string[100];
+	std::cout << "Brain default constructor called" << std::endl;
 }
 
-Animal::Animal()
+Brain::~Brain()
 {
-	sound = "*lawn mower noises*";
-	type = "huh?";
-	std::cout << "Animal default constructor called" << std::endl;
+	delete[] ideas;
+	std::cout << "Brain default destructor called" << std::endl;
 }
 
-Animal::~Animal()
+std::string	Brain::getIdeas(int nb) const
 {
-	std::cout << "Animal default destructor called" << std::endl;
-}
-
-std::string	Animal::getType() const
-{
-	return (type);
+	if (nb < 100)
+		return (ideas[nb]);
+	return (NULL);
 }

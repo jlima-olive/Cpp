@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:58:57 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:27 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 13:00:23 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 12:49:22 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-void	Animal::makeSound(void) const
+int main()
 {
-	std::cout << sound << std::endl;
-}
+	// ideas = new std::string[100];
+	Animal animals[10];
+	Animal Cat[5];
+	Animal Dog[5];
 
-Animal::Animal()
-{
-	sound = "*lawn mower noises*";
-	type = "huh?";
-	std::cout << "Animal default constructor called" << std::endl;
-}
-
-Animal::~Animal()
-{
-	std::cout << "Animal default destructor called" << std::endl;
-}
-
-std::string	Animal::getType() const
-{
-	return (type);
+	for (int i = 0; i < 5; i++)
+		animals[i] = Dog[i];
+	for (int i = 5; i < 10; i++)
+		animals[i] = Cat[i - 5];
+	for (int i = 0; i < 10; i++)
+		delete (animals + i);
+	
 }

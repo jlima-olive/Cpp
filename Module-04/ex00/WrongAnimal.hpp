@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:57:18 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/20 16:22:37 by namejojo         ###   ########.fr       */
+/*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 11:51:10 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include "Animal.hpp"
+# include <iostream>
 
-class Dog : public Animal
+class WrongAnimal
 {
+protected:
+	std::string	type;
+	std::string	sound;
 public:
-	Dog();
-	~Dog();
+	WrongAnimal();
+	~WrongAnimal();
+	void makeSound(void) const;
+	std::string	getType() const;
 };
 
 #endif

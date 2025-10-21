@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:58:57 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:27 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 12:54:13 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 12:48:03 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
-void	Animal::makeSound(void) const
+Dog::Dog() :
+Animal(),
+brain()
 {
-	std::cout << sound << std::endl;
+	type = "Dog";
+	sound = "wuamwuamwuwamwauam";
+	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Animal::Animal()
+Dog::~Dog()
 {
-	sound = "*lawn mower noises*";
-	type = "huh?";
-	std::cout << "Animal default constructor called" << std::endl;
-}
-
-Animal::~Animal()
-{
-	std::cout << "Animal default destructor called" << std::endl;
-}
-
-std::string	Animal::getType() const
-{
-	return (type);
+	std::cout << "Dog default constructor called" << std::endl;
 }

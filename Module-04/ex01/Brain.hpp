@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:58:57 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:27 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-void	Animal::makeSound(void) const
-{
-	std::cout << sound << std::endl;
-}
+# include <iostream>
 
-Animal::Animal()
+class Brain
 {
-	sound = "*lawn mower noises*";
-	type = "huh?";
-	std::cout << "Animal default constructor called" << std::endl;
-}
+protected:
+	int			init = 0;
+	std::string	*ideas;
+public:
+	std::string	getIdeas(int nb) const;
+	Brain();
+	~Brain();
+};
 
-Animal::~Animal()
-{
-	std::cout << "Animal default destructor called" << std::endl;
-}
-
-std::string	Animal::getType() const
-{
-	return (type);
-}
+#endif

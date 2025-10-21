@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 12:58:54 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+
+# include <iostream>
 
 class Animal
 {
@@ -20,5 +23,8 @@ protected:
 public:
 	Animal();
 	~Animal();
-	void makeSound(void);
+	void makeSound(void) const;
+	std::string	getType() const;
 };
+
+#endif

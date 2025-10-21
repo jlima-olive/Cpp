@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:57:18 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/20 16:22:37 by namejojo         ###   ########.fr       */
+/*   Created: 2025/10/18 12:50:40 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/18 13:03:23 by namejojo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "WrongCat.hpp"
 
-#include "Animal.hpp"
-
-class Dog : public Animal
+WrongCat::WrongCat() :
+WrongAnimal()
 {
-public:
-	Dog();
-	~Dog();
-};
+	type = "Wrongcat";
+	sound = "wrongNyahhhhh";
+	std::cout << "WrongCat default constructor called" << std::endl;
+}
 
-#endif
+WrongCat::~WrongCat()
+{
+	std::cout << "WrongCat default destructor called" << std::endl;
+}
