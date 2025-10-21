@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 12:57:18 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 16:09:18 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <iostream>
+#include "Animal.hpp"
 
-class Brain
+class Dog : public Animal
 {
-protected:
-	std::string	ideas[100];
+private:
+	Brain	brain;
 public:
-	std::string	getIdeas(int nb) const;
-	Brain();
-	~Brain();
+	void	makeSound(void) const;
+	Dog();
+	~Dog();
 };
 
 #endif

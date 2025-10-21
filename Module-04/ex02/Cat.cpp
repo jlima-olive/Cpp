@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 12:50:40 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 14:06:17 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Cat.hpp"
 
-# include <iostream>
-
-class Brain
+void	Cat::makeSound(void) const
 {
-protected:
-	std::string	ideas[100];
-public:
-	std::string	getIdeas(int nb) const;
-	Brain();
-	~Brain();
-};
+	std::cout << sound << std::endl;
+}
 
-#endif
+Cat::Cat() :
+Animal(),
+brain()
+{
+	type = "cat";
+	sound = "Nyahhhhh";
+	std::cout << "Cat default constructor called" << std::endl;
+}
+
+Cat::~Cat()
+{
+	std::cout << "Cat default destructor called" << std::endl;
+}

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 12:54:13 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 16:06:06 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Dog.hpp"
 
-# include <iostream>
-
-class Brain
+void	Dog::makeSound(void) const
 {
-protected:
-	std::string	ideas[100];
-public:
-	std::string	getIdeas(int nb) const;
-	Brain();
-	~Brain();
-};
+	std::cout << sound << std::endl;
+}
 
-#endif
+Dog::Dog() :
+Animal(),
+brain()
+{
+	type = "Dog";
+	sound = "wuamwuamwuwamwauam";
+	std::cout << "Dog default constructor called" << std::endl;
+}
+
+Dog::~Dog()
+{
+	std::cout << "Dog default constructor called" << std::endl;
+}

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 12:58:57 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 14:05:56 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Animal.hpp"
 
-# include <iostream>
-
-class Brain
+Animal::Animal()
 {
-protected:
-	std::string	ideas[100];
-public:
-	std::string	getIdeas(int nb) const;
-	Brain();
-	~Brain();
-};
+	std::cout << "Animal default constructor called" << std::endl;
+}
 
-#endif
+Animal::~Animal()
+{
+	std::cout << "Animal default destructor called" << std::endl;
+}
+
+std::string	Animal::getType() const
+{
+	return (type);
+}

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/10/18 13:00:23 by namejojo          #+#    #+#             */
+/*   Updated: 2025/10/21 16:09:48 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-# include <iostream>
-
-class Brain
+int main()
 {
-protected:
-	std::string	ideas[100];
-public:
-	std::string	getIdeas(int nb) const;
-	Brain();
-	~Brain();
-};
+	// Animal animls;
+	Dog	dogs;
+	Cat	cats;
 
-#endif
+	cats.makeSound();
+	dogs.makeSound();
+}
