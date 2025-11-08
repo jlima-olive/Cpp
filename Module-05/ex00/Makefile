@@ -1,7 +1,8 @@
 
-CXX			= cc
+CXX			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror 
+# -std=c++98
 
 SRC_FILES	= Bureaucrat.cpp main.cpp
 
@@ -12,7 +13,7 @@ NAME		= Bureaucrat
 all: ${NAME}
 
 ${NAME}: $(OBJ_FILES) Makefile
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
 clean:
 	rm -fr $(OBJ_FILES)

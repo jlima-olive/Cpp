@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:45:44 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/06 13:10:07 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/08 23:42:27 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Point::Point(const Point &obj) :
 x(obj.x),
 y(obj.y)
 {}
+
 Point::Point(const Fixed &x, const Fixed &y) :
 x(x),
 y(y)
