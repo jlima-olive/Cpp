@@ -6,12 +6,11 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:20:45 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/08 20:29:10 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/09 00:01:20 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 
 class Bureaucrat
 {

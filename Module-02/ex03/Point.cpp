@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:45:44 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/08 23:42:27 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/08 23:59:33 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ y(y)
 
 Point	&Point::operator=(const Point& obj)
 {
-	*this = obj;
-	return (*this);
+    Point   *new_p;
+
+    new_p = new Point(obj.x, obj.y); // check later if needs to free, if so alloc everywhere to destroy everyhwere
+	return (*new_p);
 }
 
 Point::~Point()
