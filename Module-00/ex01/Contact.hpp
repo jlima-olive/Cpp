@@ -21,14 +21,3 @@ public:
 	void	print_info(int ind);
 	void	print_secrets();
 };
-
-class PhoneBook
-{
-private: 
-	Contact ctt[8];
-	int		calls;
-public:
-	PhoneBook();
-	void	add();
-	void search();
-};
