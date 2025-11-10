@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:22 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/10 18:45:12 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/10 19:15:33 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class	Point
 protected:
 	const Fixed x;
 	const Fixed y;
+	int			flag;
 public:
 	Point();
 	Point(const Point &obj);

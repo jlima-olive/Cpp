@@ -33,8 +33,3 @@ val: re
 	valgrind --leak-check=full --trace-children=yes --show-leak-kinds=all ./${PROJ}
 
 .PHONY: re fclean clean all val r
-
-# so:
-
-
-
