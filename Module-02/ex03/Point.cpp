@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:45:44 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/08 23:59:33 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:45:04 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 Point::Point()
 {}
+
 Point::Point(const Point &obj) :
 x(obj.x),
 y(obj.y)
@@ -23,14 +24,13 @@ y(obj.y)
 Point::Point(const Fixed &x, const Fixed &y) :
 x(x),
 y(y)
-{}
+{
+    
+}
 
 Point	&Point::operator=(const Point& obj)
 {
-    Point   *new_p;
-
-    new_p = new Point(obj.x, obj.y); // check later if needs to free, if so alloc everywhere to destroy everyhwere
-	return (*new_p);
+	return (*(new Point(obj.x, obj.y)));
 }
 
 Point::~Point()

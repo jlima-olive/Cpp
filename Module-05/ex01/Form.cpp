@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:48:50 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/08 22:27:23 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/10 16:09:11 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ grade(obj.grade)
 
 Form	&Form::operator=(const Form &obj)
 {
-	*this = obj;
-	return (*this);
+	return (*(new Form(obj.name, obj.grade)));
 }
 
 Form::~Form()
