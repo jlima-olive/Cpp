@@ -41,6 +41,8 @@ void	replace_all_str(std::string &content, std::string str1, const char *str2)
 	int	loc;
 	int	len;
 
+	if (str1.compare(str2) == 0)
+		return ;
 	len = str1.length();
 	loc = content.find(str1);
 	while (loc > -1)
