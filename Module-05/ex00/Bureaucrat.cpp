@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/10 16:08:41 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/15 15:35:12 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void Bureaucrat::upGrade()
 	grade++;
 }
 
-void Bureaucrat::downtGrade()
+void Bureaucrat::downGrade()
 {
 	handle_exception(grade - 1);
 	grade--;
