@@ -2,7 +2,7 @@
 
 void Harl::debug( void )
 {
-    std::cout << "[DEBBUG]" << std::endl
+    std::cout << "[DEBUG]" << std::endl
               << "Standard debug complaint" << std::endl;
 }
 

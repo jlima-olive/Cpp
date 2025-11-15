@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:32:18 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/08 23:32:22 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/15 16:45:28 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ int main(void)
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
+		return 0;
 	}
+	catch (...)
+	{
+		std::cout << "random exception??" << std::endl;
+		return 0;
+	}
+	std::cout << "no exception detected" << std::endl;
 }
 
 // char	**split(char *str, char c)
