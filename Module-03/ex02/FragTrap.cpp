@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 11:35:47 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:10:49 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ ClapTrap(obj.name, obj.hp, obj.energy, obj.dps)
 
 FragTrap	&FragTrap::operator=(const FragTrap &obj)
 {
-	(ClapTrap)(*this) = obj;
-	// this->name = obj.name;
-	// this->energy = obj.energy;
-	// this->hp = obj.hp;
-	// this->dps = obj.dps;
+	this->name = obj.name;
+	this->energy = obj.energy;
+	this->hp = obj.hp;
+	this->dps = obj.dps;
 	std::cout << "FragTrap asignment operator called" << std::endl;	
 	return (*this);
 }
@@ -47,7 +46,7 @@ FragTrap::~FragTrap()
 }
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << name << " has requested a positive high-fives request" << std::endl;
+	std::cout << "FragTrap " << name << " has requested a positively high five" << std::endl;
 }
 
 void FragTrap::takeDamage(unsigned int amount)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 11:29:24 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:04:15 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ScavTrap::ScavTrap() :
 ClapTrap("ScavTrap", 100, 50, 20),
 defense(0)
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;	
+	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name, unsigned hp, unsigned energy, unsigned dps) :
@@ -30,14 +30,17 @@ ScavTrap::ScavTrap(const ScavTrap &obj) :
 ClapTrap(obj.name, obj.hp, obj.energy, obj.dps),
 defense(0)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;	
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
 {
-	(ClapTrap)(*this) = obj;
+	this->name = obj.name;
+	this->hp = obj.hp;
+	this->energy = obj.energy;
+	this->dps = obj.dps;
 	this->defense = 0;
-	std::cout << "ScavTrap asignment operator called" << std::endl;	
+	std::cout << "ScavTrap asignment operator called" << std::endl;
 	return (*this);
 }
 

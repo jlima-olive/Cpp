@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:05:01 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 11:24:57 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 12:58:26 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main(void)
     slap1 = new FragTrap("jojo", 0, 10, 0);
     for(int i = 0; i < 5; i++)
         slap1->attack("definetly not jojo");
-    slap1->guardGate();
+    slap1->highFivesGuys();
     slap1->takeDamage(20);
     for(int i = 0; i < 5; i++)
         slap1->attack("definetly not jojo");
