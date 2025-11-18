@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/06 11:34:38 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 10:51:26 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 int Fixed::getRawBits( void ) const
 {
-	// std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return (value);
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	// std::cout << "setRawBits member function called" << std::endl;
+	std::cout << "setRawBits member function called" << std::endl;
 	value = raw;
 }
 
@@ -31,37 +31,27 @@ Fixed::Fixed()
 	value = 0;
 }
 /**************************************************************************************************/
+
 Fixed::Fixed(const int numb)
 {
 	std::cout << "Int constructor called" << std::endl;
-	setRawBits(numb << 8);
+	setRawBits(numb << LIT);
 }
 
 Fixed::Fixed(const float numb)
 {
-	int			temp;
+	int	temp;
 	int	ret;
 
 	std::cout << "Float constructor called" << std::endl;
 	temp = numb;
-	ret = 255 * (float)(numb - temp) + 1;
-	setRawBits((temp << 8) + ret);
+	ret = (1 << LIT) * (float)(numb - temp) + 0.5;
+	setRawBits((temp << LIT) + ret);
 }
 
 float Fixed::toFloat( void ) const
 {
-	float	ret;
-	int		temp;;
-
-	temp = 1;
-	ret = this->toInt();
-	for (int i = 8; i > 0; i--)
-	{
-		if (temp & value)
-			ret += (float)(1 / pow(2, i));
-		temp = temp << 1;
-	}
-	return (ret);
+    return ((float)value / (1 << LIT));
 }
 
 int Fixed::toInt( void ) const {	return (value >> 8);	}
