@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/18 10:56:34 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/18 11:40:16 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ Fixed::Fixed(const Fixed &obj)
 
 Fixed::~Fixed()
 {
-	std::cout << "Default desstructor called" << std::endl;
+	std::cout << "Fixed Default destructor called" << std::endl;
 	value = 0;
 }
 
