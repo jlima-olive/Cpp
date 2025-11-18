@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:47:01 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:36:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define ANIMAL_HPP
 
 # include <iostream>
-# include "Brain.hpp"
 
 class Animal
 {
@@ -23,6 +22,8 @@ protected:
 	std::string	sound;
 public:
 	Animal();
+	Animal(const Animal &obj);
+	Animal &operator=(const Animal &obj);
 	~Animal();
 	void makeSound(void) const;
 	std::string	getType() const;

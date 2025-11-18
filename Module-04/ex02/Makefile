@@ -14,7 +14,7 @@ CXXFLAGS	= -std=c++98 -Wall -Wextra -Werror
 
 all: $(PROJ)
 
-$(PROJ): ${OBJ_FILES} Makefile
+$(PROJ): ${SRC_FILES} ${OBJ_FILES} Makefile
 	$(CXX) ${CXXFLAGS} ${OBJ_FILES} -o ${PROJ}
 
 clean:

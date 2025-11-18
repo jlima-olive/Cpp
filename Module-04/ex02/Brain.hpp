@@ -22,6 +22,8 @@ protected:
 public:
 	std::string	getIdeas(int nb) const;
 	Brain();
+	Brain &operator=(const Brain &obj);
+	Brain(const Brain &obj);
 	~Brain();
 };
 
