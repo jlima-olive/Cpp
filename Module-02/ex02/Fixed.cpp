@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/18 10:51:26 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/18 11:51:52 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ float	Fixed::operator--(int)
 
 float	Fixed::operator--()
 {
-	this->value = this->value - (float)(1 / 256);
+	this->value = this->value - 1;
 	return (this->toFloat());
 }
 
