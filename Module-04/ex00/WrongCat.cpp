@@ -16,7 +16,6 @@ WrongCat::WrongCat() :
 WrongAnimal()
 {
 	type = "Wrongcat";
-	sound = "wrongNyahhhhh";
 	std::cout << "WrongCat default constructor called" << std::endl;
 }
 
