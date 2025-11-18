@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:05:01 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 12:30:22 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/10 19:06:09 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ int main(void)
     slap1->takeDamage(20);
     for(int i = 0; i < 5; i++)
         slap1->attack("definetly not jojo");
+    delete (slap1);
 }

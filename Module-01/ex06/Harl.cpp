@@ -2,7 +2,7 @@
 
 void Harl::debug( void )
 {
-    std::cout << "[DEBBUG]" << std::endl
+    std::cout << "[DEBUG]" << std::endl
               << "Standard debug complaint" << std::endl;
 }
 
@@ -28,7 +28,7 @@ void Harl::complain( std::string level )
 {
     int                 ind = -1;
     const std::string   levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    ptr_func            funcs[] = {&Harl::debug, &Harl::debug, &Harl::warning, &Harl::error};
+    ptr_func            funcs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     while (++ind < 5)
         if (level == levels[ind])

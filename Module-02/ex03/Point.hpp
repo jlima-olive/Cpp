@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:22 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/06 13:08:26 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/10 19:15:33 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@
 
 class	Point
 {
-private:
+protected:
 	const Fixed x;
 	const Fixed y;
+	int			flag;
 public:
 	Point();
 	Point(const Point &obj);
-	Point	&operator=(const Point& obj);
-	float Point::operator-(const Point& obj);
 	Point(const Fixed &x, const Fixed &y);
+	Point	&operator=(const Point& obj);
 	~Point();
 	float	getX();
 	float	getY();
 };
 
-std::ostream& operator<<(std::ostream &out, const Point &obj);
+bool bsp(Point a, Point b, Point c, Point point);
 
 #endif

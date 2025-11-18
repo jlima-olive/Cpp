@@ -5,19 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/08 19:19:37 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/08 19:19:38 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/08 17:32:18 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/15 15:35:12 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Zombie.hpp"
+#include "Bureaucrat.hpp"
 
 int main(void)
 {
-	Zombie  *zombies;
-    int     num = 10;
+	try
+	{
+		Bureaucrat bur("Jao", 150);
+		std::cout << bur << std::endl;
+		bur.upGrade();
+		std::cout << bur << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat bur("Jao", 1);
+		std::cout << bur << std::endl;
+		bur.downGrade();
+		std::cout << bur << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-    zombies = zombieHorde(num, "name");
-    delete[] zombies;
 }

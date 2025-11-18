@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:45:44 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/06 13:10:07 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/10 19:11:36 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,33 @@
 #include "Fixed.hpp"
 
 Point::Point()
-{}
+{
+    // new Point(0, 0);
+}
+
 Point::Point(const Point &obj) :
 x(obj.x),
 y(obj.y)
-{}
+{
+    
+}
+
 Point::Point(const Fixed &x, const Fixed &y) :
 x(x),
 y(y)
-{}
+{
+    
+}
 
 Point	&Point::operator=(const Point& obj)
 {
-	*this = obj;
-	return (*this);
+    std::cout << "\t\t\tCopy asignment operator used" << std::endl;
+	return (*(new Point(obj.x, obj.y)));
 }
 
 Point::~Point()
 {
+    
 }
 
 float	Point::getX()

@@ -10,7 +10,7 @@ void	Weapon::setType(std::string type)
 	this->type = type;
 }
 
-Weapon::Weapon(std::string	type = '\0')
+Weapon::Weapon(std::string	type)
 {
 	this->type = type;
 }
