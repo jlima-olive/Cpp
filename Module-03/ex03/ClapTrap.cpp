@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:53:31 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 11:06:39 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:03:59 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (hp <= 0)
 	{
-		std::cout << "ClapTrap " << name << "is too dead to do anything" << std::endl;
+		std::cout << "ClapTrap " << name << " is too dead to do anything" << std::endl;
 		return ;
 	}
 	if (energy <= 0)
 	{
-		std::cout << "ClapTrap " << name << "is too tired to do anything" << std::endl;
+		std::cout << "ClapTrap " << name << " is too tired to do anything" << std::endl;
 		return ;
 	}
 	energy--;

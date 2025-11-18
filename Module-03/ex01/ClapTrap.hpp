@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:54:37 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/14 18:27:03 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:52:20 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class ClapTrap
 {
 protected:
+	std::string type;
 	std::string name;
 	unsigned	hp;
 	unsigned	energy;

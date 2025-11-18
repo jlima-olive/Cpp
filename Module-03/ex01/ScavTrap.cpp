@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/18 13:04:15 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:55:08 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ ScavTrap::ScavTrap() :
 ClapTrap("ScavTrap", 100, 50, 20),
 defense(0)
 {
+	type = "ScavTrap";
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
@@ -23,6 +24,7 @@ ScavTrap::ScavTrap(std::string name, unsigned hp, unsigned energy, unsigned dps)
 ClapTrap(name, hp, energy, dps),
 defense(0)
 {
+	type = "ScavTrap";
 	std::cout << "ScavTrap argument constructor called" << std::endl;	
 }
 
@@ -30,6 +32,7 @@ ScavTrap::ScavTrap(const ScavTrap &obj) :
 ClapTrap(obj.name, obj.hp, obj.energy, obj.dps),
 defense(0)
 {
+	type = "ScavTrap";
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
@@ -40,6 +43,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
 	this->energy = obj.energy;
 	this->dps = obj.dps;
 	this->defense = 0;
+	this->type = "ScavTrap";
 	std::cout << "ScavTrap asignment operator called" << std::endl;
 	return (*this);
 }
