@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:00:23 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/18 14:09:07 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:12:12 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ const WrongAnimal* i = new WrongCat();
 
 // std::cout << j->getType() << " " << std::endl;
 std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-// j->makeSound();
+i->makeSound();
 meta->makeSound();
 return 0;
 }
