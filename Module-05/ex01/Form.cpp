@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:48:50 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/15 16:44:31 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:42:57 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ void Form::beSigned(Bureaucrat &obj)
 				  << " because the Bureaucrats grading is too low" << std::endl;
 		throw GradeTooLowException();
 	}
-	sign = true;
-	std::cout << obj.getName() << " signed " << name << std::endl;
+	if (sign == false)
+	{
+		sign = true;
+		std::cout << obj.getName() << " signed " << name << std::endl;
+	}
 }
 
 Form::Form() :
