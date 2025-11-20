@@ -19,15 +19,13 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
-	int	_name;
+	std::string	_name;
 public:
 	DiamondTrap();
-	DiamondTrap(std::string name, unsigned hp, unsigned energy, unsigned dps);
+	DiamondTrap(std::string name);
 	DiamondTrap(const DiamondTrap &obj);
 	DiamondTrap	&operator=(const DiamondTrap &obj);
-	void	takeDamage(unsigned int amount);
-	void	guardGate();
-	~DiamondTrap();
+	virtual ~DiamondTrap();
 };
 
 #endif

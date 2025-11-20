@@ -6,29 +6,42 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:36:27 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/18 13:47:20 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 11:54:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : 
-ScavTrap("DiamondTrap", 100, 50, 30)
+ClapTrap(),
+FragTrap(),
+ScavTrap()
 {
-	this->name = this->name + "_clap_name";
+	this->name = ClapTrap::name + "_clap_name";
+	this->hp = FragTrap::hp;
+	this->energy = ScavTrap::energy;
+	this->dps = FragTrap::dps;
 	std::cout << "DiamondTrap default constructor called" << std::endl;	
 }
 
-DiamondTrap::DiamondTrap(std::string name, unsigned hp, unsigned energy, unsigned dps) :
-ScavTrap(name + "_clap_name", hp, energy, dps)
+DiamondTrap::DiamondTrap(std::string var_name) : 
+ClapTrap(),
+FragTrap(),
+ScavTrap()
 {
-	std::cout << "DiamondTrap argument constructor called" << std::endl;	
+	this->_name = var_name;
+	ClapTrap::name = var_name + "_clap_name";
+	this->name = ClapTrap::name;
+	this->hp = FragTrap::hp;
+	this->energy = ScavTrap::energy;
+	this->dps = FragTrap::dps;
+	std::cout << "DiamondTrap default constructor called" << std::endl;	
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &obj) :
-ClapTrap(obj.name + "_clap_name", obj.hp, obj.energy, obj.dps),
-FragTrap(obj.name + "_clap_name", obj.hp, obj.energy, obj.dps),
-ScavTrap(obj.name + "_clap_name", obj.hp, obj.energy, obj.dps)
+ClapTrap(obj),
+FragTrap(obj),
+ScavTrap(obj)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;	
 }
@@ -45,32 +58,4 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &obj)
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap destructor called" << std::endl;	
-}
-
-void DiamondTrap::guardGate()
-{
-	defense = 1;
-	std::cout << "DiamondTrap " << name << " is in Gate keeper mode" << std::endl;
-}
-
-void DiamondTrap::takeDamage(unsigned int amount)
-{
-	if (hp <= 0)
-	{
-		std::cout << "DiamondTrap " << name << " is already dead" << std::endl;
-		return ;
-	}
-	if (defense)
-	{
-		std::cout << "DiamondTrap " << name << " is in Gate keeper mode"
-				  << " so he didnt take damage" << std::endl;
-		defense = 0;
-		return ;
-	}
-	std::cout << "DiamondTrap " << name << " got attacked for "
-		  << amount << " points of damage!" << std::endl;
-	if (amount <= hp)
-		hp -= amount;
-	else
-		hp = 0;
 }

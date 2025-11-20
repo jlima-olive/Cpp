@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:25:28 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 12:09:43 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/20 11:47:06 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ protected:
 	int	defense;
 public:
 	ScavTrap();
-	ScavTrap(std::string name, unsigned hp, unsigned energy, unsigned dps);
+	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap &obj);
 	ScavTrap	&operator=(const ScavTrap &obj);
 	void	takeDamage(unsigned int amount);
+	void	attack(const std::string& target);
 	void	guardGate();
 	~ScavTrap();
 };

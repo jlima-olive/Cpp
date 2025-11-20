@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:25:28 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 12:09:39 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/20 11:42:40 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ class FragTrap : virtual public ClapTrap
 {
 public:
 	FragTrap();
-	FragTrap(std::string name, unsigned hp, unsigned energy, unsigned dps);
+	FragTrap(std::string name);
 	FragTrap(const FragTrap &obj);
 	FragTrap	&operator=(const FragTrap &obj);
-	void	takeDamage(unsigned int amount);
 	void	highFivesGuys(void);
 	~FragTrap();
 };
