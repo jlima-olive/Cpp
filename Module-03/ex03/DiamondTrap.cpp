@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:36:27 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/20 12:29:17 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:30:28 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ ScavTrap(obj)
 DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &obj)
 {
 	this->_name = obj._name;
-	this->name = obj._name + "_clap_name";
+	this->name = obj.name;
 	this->hp = obj.hp;
 	this->energy = obj.energy;
 	this->defense = obj.defense;
