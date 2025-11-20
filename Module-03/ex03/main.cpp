@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:05:01 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/20 12:23:09 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:28:17 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ int main(void)
 
     std::cout << std::endl << "*****coppy assigment operator******" << std::endl << std::endl;
     trap = john_cpy;
-    trap.attack("random_guy");
+    trap.highFivesGuys();
+    trap.beRepaired(10);
+    trap.whoAmI();
+    trap.guardGate();
+    // for(int i = 0; i <= 48; i++)
+        trap.attack("random_guy");
 
     std::cout << std::endl << "*****Fin******" << std::endl << std::endl;
 
