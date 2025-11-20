@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/18 13:55:08 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:06:58 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
 	this->dps = obj.dps;
 	this->defense = 0;
 	this->type = "ScavTrap";
-	std::cout << "ScavTrap asignment operator called" << std::endl;
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	return (*this);
 }
 

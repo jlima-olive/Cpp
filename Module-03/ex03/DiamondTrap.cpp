@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:36:27 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/20 12:19:12 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:22:15 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ ClapTrap(obj),
 FragTrap(obj),
 ScavTrap(obj)
 {
-	this->name = obj._name + "_clap_name";
-	std::cout << "DiamondTrap copy constructor called" << std::endl;	
+	this->_name = obj._name;
+	ClapTrap::name = obj._name + "_clap_name";
+	this->name = ClapTrap::name;
+	this->hp = FragTrap::hp;
+	this->energy = ScavTrap::energy;
+	this->dps = FragTrap::dps;	std::cout << "DiamondTrap copy constructor called" << std::endl;	
 }
 
 DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &obj)
@@ -66,5 +70,5 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "I am both " << name << " and " << _name;
+	std::cout << "I am both " << name << " and " << _name << std::endl;
 }
