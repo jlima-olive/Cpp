@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/20 12:06:32 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:37:15 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ClapTrap(name, hp, energy, dps)
 }
 
 FragTrap::FragTrap(const FragTrap &obj) :
-ClapTrap(obj.name, obj.hp, obj.energy, obj.dps)
+ClapTrap(obj)
 {
 	type = "FragTrap";
 	std::cout << "FragTrap copy constructor called" << std::endl;	

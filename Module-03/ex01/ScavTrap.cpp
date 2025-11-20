@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/20 12:06:58 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:36:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ defense(0)
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj) :
-ClapTrap(obj.name, obj.hp, obj.energy, obj.dps),
+ClapTrap(obj),
 defense(0)
 {
 	type = "ScavTrap";
