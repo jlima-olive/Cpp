@@ -18,7 +18,7 @@
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
-private:
+protected:
 	std::string	_name;
 public:
 	DiamondTrap();
@@ -26,6 +26,7 @@ public:
 	DiamondTrap(const DiamondTrap &obj);
 	DiamondTrap	&operator=(const DiamondTrap &obj);
 	virtual ~DiamondTrap();
+	void	whoAmI();
 };
 
 #endif

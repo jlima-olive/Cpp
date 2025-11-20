@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:53:31 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/20 11:41:07 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:06:13 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &obj)
 	this->energy = obj.energy;
 	this->hp = obj.hp;
 	this->dps = obj.dps;
-	std::cout << "ClapTrap asignment operator called" << std::endl;	
+	std::cout << "ClapTrap copy assignment operator called" << std::endl;	
 	return (*this);
 }
 
