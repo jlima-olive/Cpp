@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/08 21:28:29 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/21 13:20:32 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ void Bureaucrat::downtGrade()
 	handle_exception(grade - 1);
 	grade--;
 }
+
+void	Bureaucrat::signForm(Form &obj)
+{
+}
+
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
 {

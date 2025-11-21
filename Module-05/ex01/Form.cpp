@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:48:50 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/15 16:44:31 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/21 13:12:50 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int Form::getGrade()
 {
-	return (grade);
+	return (sign_grade);
 }
 
 const std::string Form::getName()
@@ -24,7 +24,7 @@ const std::string Form::getName()
 
 void Form::beSigned(Bureaucrat &obj)
 {
-	if (obj.getGrade() > grade && sign == false)
+	if (obj.getGrade() > sign_grade && sign == false)
 	{
 		std::cout << obj.getName() << " couldn't sign " << name
 				  << " because the Bureaucrats grading is too low" << std::endl;
@@ -37,32 +37,37 @@ void Form::beSigned(Bureaucrat &obj)
 Form::Form() :
 name("Form"),
 sign(false),
-grade(100)
+sign_grade(100),
+exec_grade(75)
 {
 	std::cout << "Form default constructor called" << std::endl;	
 }
 
-Form::Form(std::string new_name, int grade) :
+Form::Form(std::string new_name, int sign_grade, int exec_grade) :
 name(new_name),
 sign(false),
-grade(grade * (grade < 151 && grade > 0) + 100 * !(grade < 151 && grade > 0))
+sign_grade(sign_grade * (sign_grade < 151 && sign_grade > 0) + 100 * !(sign_grade < 151 && sign_grade > 0)),
+exec_grade(exec_grade * (exec_grade < 151 && exec_grade > 0) + 75 * !(exec_grade < 151 && exec_grade > 0))
 {
+	handle_exception(sign_grade);
+	handle_exception(exec_grade);
 	std::cout << "Form argument constructor called" << std::endl;	
-	handle_exception(grade);
+	handle_exception(sign_grade);
 }
 
 Form::Form(Form &obj) :
 name(obj.name),
 sign(obj.sign),
-grade(obj.grade)
+sign_grade(obj.sign_grade),
+exec_grade(obj.exec_grade)
 {
 	std::cout << "Form copy constructor called" << std::endl;	
 }
 
-Form	&Form::operator=(const Form &obj)
+Form	&Form::operator=(Form &obj)
 {
 	std::cout << "Bureaucrat copy asignment operator called" << std::endl;	
-	return (*(new Form(obj.name, obj.grade)));
+	return (obj);
 }
 
 Form::~Form()
