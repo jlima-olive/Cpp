@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/10/14 18:16:56 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 10:48:57 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 int Fixed::getRawBits( void ) const
 {
-	// std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return (value);
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	// std::cout << "setRawBits member function called" << std::endl;
+	std::cout << "setRawBits member function called" << std::endl;
 	value = raw;
 }
 
@@ -30,11 +30,11 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 	value = 0;
 }
-/**************************************************************************************************/
+
 Fixed::Fixed(const int numb)
 {
 	std::cout << "Int constructor called" << std::endl;
-	setRawBits(numb << 8);
+	setRawBits(numb << LIT);
 }
 
 Fixed::Fixed(const float numb)
@@ -44,8 +44,8 @@ Fixed::Fixed(const float numb)
 
 	std::cout << "Float constructor called" << std::endl;
 	temp = numb;
-	ret = 256 * (float)(numb - temp) + 0.5;
-	setRawBits((temp << 8) + ret);
+	ret = (1 << LIT) * (float)(numb - temp) + 0.5;
+	setRawBits((temp << LIT) + ret);
 }
 
 float Fixed::toFloat( void ) const
@@ -61,8 +61,6 @@ std::ostream& operator<<(std::ostream &out, const Fixed &obj)
 	return (out);
 }
 
-/**************************************************************************************************/
-
 Fixed::Fixed(const Fixed &obj)
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -71,7 +69,7 @@ Fixed::Fixed(const Fixed &obj)
 
 Fixed::~Fixed()
 {
-	std::cout << "Default desstructor called" << std::endl;
+	std::cout << "Default destructor called" << std::endl;
 	value = 0;
 }
 

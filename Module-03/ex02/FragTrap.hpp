@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:25:28 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 11:28:56 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:59:22 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ public:
 	FragTrap(std::string name, unsigned hp, unsigned energy, unsigned dps);
 	FragTrap(const FragTrap &obj);
 	FragTrap	&operator=(const FragTrap &obj);
-	void	takeDamage(unsigned int amount);
 	void	highFivesGuys(void);
 	~FragTrap();
 };

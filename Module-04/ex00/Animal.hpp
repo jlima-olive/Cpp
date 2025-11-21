@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:48:36 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:13:30 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/21 12:49:53 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ protected:
 	std::string	sound;
 public:
 	Animal();
-	~Animal();
-	void makeSound(void) const;
+	Animal(const Animal &obj);
+	Animal &operator=(const Animal &obj);
+	virtual ~Animal();
+	virtual void makeSound(void) const;
 	std::string	getType() const;
 };
 

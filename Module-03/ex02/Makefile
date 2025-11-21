@@ -4,7 +4,7 @@ NAME		= ${PROJ}.a
 
 CXX			= c++
 
-SRC_FILES	= ${PROJ}.cpp ClapTrap.cpp ScavTrap.cpp
+SRC_FILES	= ${PROJ}.cpp ClapTrap.cpp FragTrap.cpp
 
 OBJ_FILES	= ${SRC_FILES:.cpp=.o}
 

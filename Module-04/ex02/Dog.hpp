@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:57:18 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 16:09:18 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:16:58 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 # define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
 private:
 	Brain	brain;
 public:
-	void	makeSound(void) const;
 	Dog();
+	Dog(const Dog &obj);
+	Dog &operator=(const Dog &obj);
 	~Dog();
+	std::string	getType() const;
 };
 
 #endif

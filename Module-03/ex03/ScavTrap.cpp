@@ -3,42 +3,72 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namejojo <namejojo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:05 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/18 11:29:24 by namejojo         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:06:16 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : 
-ClapTrap("ScavTrap", 100, 50, 20),
+ScavTrap::ScavTrap() :
+ClapTrap("ScavTrap"),
 defense(0)
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;	
+	hp = 100;
+	energy = 50;
+	dps = 20;
+	type = "ScavTrap";
+	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name, unsigned hp, unsigned energy, unsigned dps) :
-ClapTrap(name, hp, energy, dps),
+ScavTrap::ScavTrap(std::string name) :
+ClapTrap(name),
 defense(0)
 {
+	hp = 100;
+	energy = 50;
+	dps = 20;
+	type = "ScavTrap";
 	std::cout << "ScavTrap argument constructor called" << std::endl;	
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj) :
-ClapTrap(obj.name, obj.hp, obj.energy, obj.dps),
+ClapTrap(obj),
 defense(0)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;	
+	type = "ScavTrap";
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
 {
-	(ClapTrap)(*this) = obj;
+	this->name = obj.name;
+	this->hp = obj.hp;
+	this->energy = obj.energy;
+	this->dps = obj.dps;
 	this->defense = 0;
-	std::cout << "ScavTrap asignment operator called" << std::endl;	
+	this->type = "ScavTrap";
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	return (*this);
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (hp <= 0)
+	{
+		std::cout << "ScavTrap " << name << " is too dead to do anything" << std::endl;
+		return ;
+	}
+	if (energy <= 0)
+	{
+		std::cout << "ScavTrap " << name << " is too tired to do anything" << std::endl;
+		return ;
+	}
+	energy--;
+	std::cout << "ScavTrap " << name << " attacks " << target
+			  << ", causing " << dps << " points of damage!" << std::endl;
 }
 
 ScavTrap::~ScavTrap()

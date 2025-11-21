@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:20:22 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/10 19:15:33 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/18 11:47:44 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@
 class	Point
 {
 protected:
-	const Fixed x;
-	const Fixed y;
+	Fixed const x;
+	Fixed const y;
 	int			flag;
 public:
 	Point();
 	Point(const Point &obj);
 	Point(const Fixed &x, const Fixed &y);
-	Point	&operator=(const Point& obj);
+	Point	&operator=(Point& obj);
 	~Point();
 	float	getX();
 	float	getY();
 };
 
-bool bsp(Point a, Point b, Point c, Point point);
+bool bsp(Point &a, Point &b, Point &c, Point &point);
 
 #endif

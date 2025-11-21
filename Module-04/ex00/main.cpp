@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:00:23 by namejojo          #+#    #+#             */
-/*   Updated: 2025/10/21 12:20:18 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 13:18:27 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,28 @@
 
 int main()
 {
-/* const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
+	{
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
 
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-j->makeSound();
-meta->makeSound();
-return 0; */
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound(); //will output the cat sound!
+		j->makeSound();
+		meta->makeSound();
+		delete j;
+		delete i;
+	}
+	const WrongAnimal* j = new WrongAnimal();
+	const WrongAnimal* i = new WrongCat();
 
-// const WrongAnimal* j = new WrongDog();
-const WrongAnimal* meta = new WrongAnimal();
-const WrongAnimal* i = new WrongCat();
+	std::cout << i->getType() << std::endl;
+	std::cout << j->getType() << std::endl;
+	i->makeSound(); //will not output the cat sound!
+	j->makeSound();
+	delete j;
+	delete i;
 
-// std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-// j->makeSound();
-meta->makeSound();
-return 0;
+	return 0;
 }

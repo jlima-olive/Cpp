@@ -20,7 +20,26 @@ WrongAnimal()
 	std::cout << "WrongCat default constructor called" << std::endl;
 }
 
+WrongCat::WrongCat(const WrongCat &obj) : 
+WrongAnimal(obj)
+{
+	std::cout << "WrongCat copy constructor called" << std::endl;
+}
+
+WrongCat &WrongCat::operator=(const WrongCat &obj)
+{
+	this->sound = obj.sound;
+	this->type = obj.type;
+	std::cout << "WrongCat copy asignment operator called" << std::endl;
+	return *this;
+}
+
 WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat default destructor called" << std::endl;
+}
+
+void	WrongCat::makeSound(void) const
+{
+	std::cout << "wrongNyahhhhh" << std::endl;
 }
