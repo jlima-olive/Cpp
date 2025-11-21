@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:00:23 by namejojo          #+#    #+#             */
-/*   Updated: 2025/11/18 14:52:36 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/20 13:18:27 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
 
 	std::cout << i->getType() << std::endl;
 	std::cout << j->getType() << std::endl;
-	i->makeSound();//will not output the cat sound!
+	i->makeSound(); //will not output the cat sound!
 	j->makeSound();
 	delete j;
 	delete i;
