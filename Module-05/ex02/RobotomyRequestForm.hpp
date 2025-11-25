@@ -18,14 +18,13 @@
 class RobotomyRequestForm : public AForm
 {
 protected:
-	void execute_func(std::string str) const;
+	int execute_func() const;
 public:
 	RobotomyRequestForm();
 	RobotomyRequestForm(std::string name);
 	~RobotomyRequestForm();
 	RobotomyRequestForm &operator=(RobotomyRequestForm &obj);
 	RobotomyRequestForm(RobotomyRequestForm &obj);
-	void	execute(Bureaucrat const &executor);
 };
 
 #endif

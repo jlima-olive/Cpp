@@ -39,13 +39,19 @@ void AForm::beSigned(Bureaucrat &obj)
 
 void	AForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() > getGrade())
-		throw (GradeTooLowException());
-	execute_func();
+	if (executor.getGrade() > getGrade() || sign == false)
+	{
+		std::cout << executor.getName() << " couldn't execute " << getName() << std::endl;
+		if (sign == true && executor.getGrade() > getGrade())
+			throw (GradeTooLowException());
+	}
+	if (execute_func())
+		std::cout << executor.getName() << " executed " << getName() << std::endl;
 }
 
-void AForm::execute_func(void) const
+int AForm::execute_func(void) const
 {
+	return 1;
 }
 
 AForm::AForm() :

@@ -22,7 +22,7 @@ private:
 	const int			sign_grade;
 	const int			exec_grade;
 protected:
-	virtual void execute_func() const = 0;
+	virtual int execute_func() const = 0;
 public:
 	void	execute(Bureaucrat const & executor) const;
 	int		getGrade() const;

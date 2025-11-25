@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:20:45 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 21:03:15 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:59:53 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	Bureaucrat	&operator=(Bureaucrat &obj);
 	int		getGrade() const;
 	void	setGrade(int gr);
-	const std::string	&getName();
+	const std::string	&getName() const;
 	void	executeForm(const AForm & form) const;
 	void	upGrade();
 	void	downtGrade();

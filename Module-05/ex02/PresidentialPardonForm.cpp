@@ -41,8 +41,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-void PresidentialPardonForm::execute_func(std::string str) const
+int PresidentialPardonForm::execute_func() const
 {
-	/* Creates a file <target>_shrubbery in the working directory and writes ASCII trees
-	inside it. */
+	std::cout << getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

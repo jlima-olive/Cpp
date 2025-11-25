@@ -18,14 +18,13 @@
 class PresidentialPardonForm : public AForm
 {
 protected:
-	void execute_func(std::string str) const;
+	int execute_func() const;
 public:
 	PresidentialPardonForm();
 	PresidentialPardonForm(std::string name);
 	~PresidentialPardonForm();
 	PresidentialPardonForm &operator=(PresidentialPardonForm &obj);
 	PresidentialPardonForm(PresidentialPardonForm &obj);
-	void	execute(Bureaucrat const &executor);
 };
 
 #endif

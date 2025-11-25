@@ -41,8 +41,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::execute_func(std::string str) const
+int RobotomyRequestForm::execute_func() const
 {
-	/* Makes some drilling noises, then informs that <target> has been robotomized
-successfully 50% of the time. Otherwise, it informs that the robotomy failed*/
+	std::srand(10);
+	if (rand() > 5)
+	{
+		std::cout << getName() << " could not be robotomized" << std::endl;
+		return (0);
+	}
+	std::cout << getName() << " could was robotomized" << std::endl;
+	return (1);
 }

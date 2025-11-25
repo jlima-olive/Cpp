@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 18:56:24 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 22:21:04 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 23:01:03 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define SHRUBERRYCREATIONFORM_HPP
 
 #include <AForm.hpp>
+#include <fstream>
+#include "colors.hpp"
 
 class ShrubberyCreationForm : public AForm
 {
 protected:
-	void execute_func() const;
+	int execute_func() const;
 public:
+	std::ostream &plant_tree(std::ostream &out) const;
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string name);
 	~ShrubberyCreationForm();
