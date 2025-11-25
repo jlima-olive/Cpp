@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/08 20:34:41 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/25 18:53:29 by jlima-so         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Bureaucrat.hpp"
+
+class AForm
+{
+private:
+	const std::string	name;
+	bool				sign = false;
+	const int			sign_grade;
+	const int			exec_grade;
+protected:
+	virtual void execute_func(std::string str) const = 0;
+public:
+	int		getGrade() const;
+	const std::string getName() const;
+	void	beSigned(Bureaucrat &obj);
+	AForm();
+	AForm(std::string new_name, int sign_grade, int exec_grade);
+	AForm(AForm &obj);
+	AForm &operator=(AForm &obj);
+	~AForm();
+	void	execute(Bureaucrat const & executor) const;
+	void	handle_exception(int new_grade) const;
+	class GradeTooLowException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	class GradeTooHighException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+};
