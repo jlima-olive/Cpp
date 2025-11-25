@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 21:21:40 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:15:20 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	Bureaucrat::executeForm(const AForm & form) const
 {
 	if (getGrade() > form.getGrade())
 		std::cout << name << " couldn't execute " << form.getName() << std::endl;
-	// form.execute(*this);
+	form.execute(*this);
 	std::cout << name << " executed " << form.getName() << std::endl;
 }
 

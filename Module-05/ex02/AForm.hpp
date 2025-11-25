@@ -22,9 +22,9 @@ private:
 	const int			sign_grade;
 	const int			exec_grade;
 protected:
-	virtual void execute_func(std::string str) const = 0;
+	virtual void execute_func() const = 0;
 public:
-	// void	execute(Bureaucrat const & executor) const;
+	void	execute(Bureaucrat const & executor) const;
 	int		getGrade() const;
 	const std::string getName() const;
 	void	beSigned(Bureaucrat &obj);
