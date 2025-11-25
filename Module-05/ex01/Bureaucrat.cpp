@@ -6,11 +6,11 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/21 13:20:32 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/21 13:30:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string str, int new_grade) :
 name(str)
@@ -95,8 +95,8 @@ void Bureaucrat::downtGrade()
 
 void	Bureaucrat::signForm(Form &obj)
 {
+	obj.beSigned((*this));
 }
-
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
 {
