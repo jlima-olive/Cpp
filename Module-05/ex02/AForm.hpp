@@ -24,6 +24,7 @@ private:
 protected:
 	virtual void execute_func(std::string str) const = 0;
 public:
+	// void	execute(Bureaucrat const & executor) const;
 	int		getGrade() const;
 	const std::string getName() const;
 	void	beSigned(Bureaucrat &obj);
@@ -32,7 +33,6 @@ public:
 	AForm(AForm &obj);
 	AForm &operator=(AForm &obj);
 	~AForm();
-	void	execute(Bureaucrat const & executor) const;
 	void	handle_exception(int new_grade) const;
 	class GradeTooLowException : public std::exception
 	{

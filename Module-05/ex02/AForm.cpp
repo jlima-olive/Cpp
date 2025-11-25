@@ -37,12 +37,12 @@ void AForm::beSigned(Bureaucrat &obj)
 	}
 }
 
-void	AForm::execute(Bureaucrat const & executor) const
-{
-	if (executor.getGrade() > this->exec_grade)
-		throw (GradeTooLowException());
-	execute_func(name);
-}
+// void	AForm::execute(Bureaucrat const & executor) const
+// {
+// 	if (executor.getGrade() > this->exec_grade)
+// 		throw (GradeTooLowException());
+// 	execute_func(name);
+// }
 
 void AForm::execute_func(std::string str) const
 {
@@ -80,12 +80,14 @@ exec_grade(obj.exec_grade)
 
 AForm	&AForm::operator=(AForm &obj)
 {
-	std::cout << "Bureaucrat copy asignment operator called" << std::endl;	
+	std::cout << "AForm copy asignment operator called" << std::endl;	
 	return (obj);
 }
 
 AForm::~AForm()
-{}
+{
+	std::cout << "AForm destructor called" << std::endl;	
+}
 
 void AForm::handle_exception(const int new_grade) const
 {

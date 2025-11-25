@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 19:01:59 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 20:57:12 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 21:23:56 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	execute_func("namae");
+}
+
 void ShrubberyCreationForm::execute_func(std::string str) const
 {
-	std::cout <<
+	std::cout << "" << std::endl <<
 	"                                 &&         &%  &%#                              " << std::endl << 
 	"                                  &|       %@%&@&@                               " << std::endl << 
 	"                           @&## &@&:      #&%%;&#%&@&@                           " << std::endl << 
