@@ -6,11 +6,14 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:34:41 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/21 13:12:53 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 21:01:32 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef FORM_HPP
+# define FORM_HPP
+
+# include "Bureaucrat.hpp"
 
 class Form
 {
@@ -38,3 +41,5 @@ public:
 		virtual const char* what() const throw();
 	};
 };
+
+#endif

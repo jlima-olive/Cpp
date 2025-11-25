@@ -6,9 +6,12 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 18:56:24 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 19:59:51 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 21:04:53 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SHRUBERRYCREATIONFORM_HPP
+# define SHRUBERRYCREATIONFORM_HPP
 
 #include <AForm.hpp>
 
@@ -24,3 +27,5 @@ public:
 	ShrubberyCreationForm(ShrubberyCreationForm &obj);
 	void	execute(Bureaucrat const &executor);
 };
+
+#endif

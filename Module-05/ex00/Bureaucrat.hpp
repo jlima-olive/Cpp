@@ -6,11 +6,14 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:20:45 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/15 15:35:12 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 21:00:45 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 class Bureaucrat
 {
@@ -40,3 +43,5 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj);
+
+#endif

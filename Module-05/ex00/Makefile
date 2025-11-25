@@ -8,7 +8,7 @@ SRC_FILES	= Bureaucrat.cpp main.cpp
 
 OBJ_FILES	= ${SRC_FILES:.cpp=.o}
 
-NAME		= Bureaucrat
+NAME		= main
 
 all: ${NAME}
 

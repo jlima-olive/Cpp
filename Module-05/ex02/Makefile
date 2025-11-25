@@ -4,11 +4,11 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror 
 # -std=c++98
 
-SRC_FILES	= Bureaucrat.cpp main.cpp Form.cpp
+SRC_FILES	= Bureaucrat.cpp main.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 OBJ_FILES	= ${SRC_FILES:.cpp=.o}
 
-NAME		= Form
+NAME		= main
 
 all: ${NAME}
 

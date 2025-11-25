@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
+# include "Bureaucrat.hpp"
 class AForm
 {
 private:
@@ -41,3 +43,5 @@ public:
 		virtual const char* what() const throw();
 	};
 };
+
+#endif
