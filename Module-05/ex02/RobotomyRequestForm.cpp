@@ -43,12 +43,13 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 int RobotomyRequestForm::execute_func() const
 {
-	std::srand(10);
-	if (rand() > 5)
+    srand((unsigned)time(0)); 
+	if (rand() % 6 + 1 > 5)
 	{
 		std::cout << getName() << " could not be robotomized" << std::endl;
 		return (0);
 	}
-	std::cout << getName() << " could was robotomized" << std::endl;
+	std::cout << "* drilling noises *" << std::endl
+			  << getName() << " was robotomized" << std::endl;
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 19:01:59 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 23:04:57 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/25 23:31:58 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,35 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 std::ostream &ShrubberyCreationForm::plant_tree(std::ostream &out) const
 {
-	out << "" << std::endl <<
-	CM_FOREGROUND_GREEN << "                                 &&         &%  &%#                              " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                  &|       %@%&@&@                               " << std::endl << 
-	CM_FOREGROUND_GREEN << "                           @&## &@&:      #&%%;&#%&@&@                           " << std::endl << 
-	CM_FOREGROUND_GREEN << "                     && @#%\\@#@@%@% \\___; |%%&#%@%##@%@                        " << std::endl << 
-	CM_FOREGROUND_GREEN << "                     % @ %#%@\\&@#&@ &#   \\&  @|%#&%@%  @                       " << std::endl << 
-	CM_FOREGROUND_GREEN << "                  &&&&##%#@#=  @ @&%#%     \\ /### &&#%@#                        " << std::endl << 
-	CM_FOREGROUND_GREEN << "                 &    #&&&%@ \\|%#&=@#@%#   :_:%@&#@%#&&@%                       " << std::endl << 
-	CM_FOREGROUND_GREEN << "                %     %@%& @  &%   #&%&    ~    #@@#%&%&#@&                      " << std::endl << 
-	CM_FOREGROUND_GREEN << "             %%#%&&  #@/_&_;_\\~     @  #   =|  % @%##%##@ &                     " << std::endl << 
-	CM_FOREGROUND_GREEN << "            # &:&%%@@~        |\\           |_:;|&\\&  @@&@#&@                   " << std::endl << 
-	CM_FOREGROUND_GREEN << "         #@   &%%%@@      ://_;~\\_____    ///   &#@#&#&%#@                      " << std::endl << 
-	CM_FOREGROUND_GREEN << "        &@#@   #@@$_&@__//            \\  ;    @#@&&@&&@##%#@                    " << std::endl << 
-	CM_FOREGROUND_GREEN << "        &%   %@=//;_ : /               =\\      %& @@@@&&&  @                    " << std::endl << 
-	CM_FOREGROUND_GREEN << "               @                         ~    &  @   %  %                        " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                          \\                                     " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                          =|\\                                   " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                          ||      _~___;                         " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                          ||  __~_      _~__\\                   " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                          ____               \\                  " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                         ~|                    \\                " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                         ||               %&    |                " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                         ||            @%#_&    /    %           " << std::endl << 
-	CM_FOREGROUND_GREEN << "                            \\_______.-./||\\._________/    @~&~~~   @##@&%      " << std::endl << 
-	CM_FOREGROUND_GREEN << "                             \\                      /    @@@@/#&%|@&#@%#        " << std::endl << 
-	CM_FOREGROUND_GREEN << "                              \\____________________/    &&&%@%###~%&/&&         " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                                          @#&&&@@@&##%@%         " << std::endl << 
-	CM_FOREGROUND_GREEN << "                                                           %&  %&@&%&#%#@        " << std::endl << 
-	CM_FOREGROUND_WHITE << "                                                                                 " << std::endl;
+	out << "" << std::endl << CM_FOREGROUND_GREEN <<
+	"                                 &&         &%  &%#                              " << std::endl << 
+	"                                  &|       %@%&@&@                               " << std::endl << 
+	"                           @&## &@&:      #&%%;&#%&@&@                           " << std::endl << 
+	"                     && @#%\\@#@@%@% \\___; |%%&#%@%##@%@                        " << std::endl << 
+	"                     % @ %#%@\\&@#&@ &#   \\&  @|%#&%@%  @                       " << std::endl << 
+	"                  &&&&##%#@#=  @ @&%#%     \\ /### &&#%@#                        " << std::endl << 
+	"                 &    #&&&%@ \\|%#&=@#@%#   :_:%@&#@%#&&@%                       " << std::endl << 
+	"                %     %@%& @  &%   #&%&    ~    #@@#%&%&#@&                      " << std::endl << 
+	"             %%#%&&  #@/_&_;_\\~     @  #   =|  % @%##%##@ &                     " << std::endl << 
+	"            # &:&%%@@~        |\\           |_:;|&\\&  @@&@#&@                   " << std::endl << 
+	"         #@   &%%%@@      ://_;~\\_____    ///   &#@#&#&%#@                      " << std::endl << 
+	"        &@#@   #@@$_&@__//            \\  ;    @#@&&@&&@##%#@                    " << std::endl << 
+	"        &%   %@=//;_ : /               =\\      %& @@@@&&&  @                    " << std::endl << 
+	"               @                         ~    &  @   %  %                        " << std::endl << 
+	"                                          \\                                     " << std::endl << 
+	"                                          =|\\                                   " << std::endl << 
+	"                                          ||      _~___;                         " << std::endl << 
+	"                                          ||  __~_      _~__\\                   " << std::endl << 
+	"                                          ____               \\                  " << std::endl << 
+	"                                         ~|                    \\                " << std::endl << 
+	"                                         ||               %&    |                " << std::endl << 
+	"                                         ||            @%#_&    /    %           " << std::endl << 
+	"                            \\_______.-./||\\._________/    @~&~~~   @##@&%      " << std::endl << 
+	"                             \\                      /    @@@@/#&%|@&#@%#        " << std::endl << 
+	"                              \\____________________/    &&&%@%###~%&/&&         " << std::endl << 
+	"                                                          @#&&&@@@&##%@%         " << std::endl << 
+	"                                                           %&  %&@&%&#%#@        " << std::endl << 
+	"                                                                                 " << std::endl;
 	return (out);
 }
 
@@ -81,7 +81,7 @@ int ShrubberyCreationForm::execute_func() const
 
 	filename = getName() + "_shrubbery"; 
 
-	std::ofstream outfile(filename);
+	std::ofstream outfile(filename.c_str());
 	if (!outfile.is_open())
 	{
 		std::cout << "Could't open " << filename << std::endl;

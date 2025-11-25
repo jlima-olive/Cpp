@@ -18,7 +18,7 @@ class AForm
 {
 private:
 	const std::string	name;
-	bool				sign = false;
+	bool				sign;
 	const int			sign_grade;
 	const int			exec_grade;
 protected:

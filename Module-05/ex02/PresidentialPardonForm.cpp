@@ -44,4 +44,5 @@ PresidentialPardonForm::~PresidentialPardonForm()
 int PresidentialPardonForm::execute_func() const
 {
 	std::cout << getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	return (1);
 }
