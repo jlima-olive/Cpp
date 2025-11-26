@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 16:54:38 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 17:34:24 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/26 17:34:44 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/26 18:11:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Serializer.hpp>
+#include <A.hpp>
+#include <B.hpp>
+#include <Base.hpp>
+#include <C.hpp>
 
-uintptr_t Serializer::serialize(Data* ptr)
+Base::~Base()
 {
-	return ((uintptr_t)ptr);
-}
-
-Data* Serializer::deserialize(uintptr_t raw)
-{
-	return ((Data *)(raw));
+	std::cout << "default destructor called" << std::endl;
 }

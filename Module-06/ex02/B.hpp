@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 16:54:38 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 17:34:24 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/26 17:34:44 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/26 17:49:53 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Serializer.hpp>
+#ifndef B_HPP
+# define B_HPP
 
-uintptr_t Serializer::serialize(Data* ptr)
-{
-	return ((uintptr_t)ptr);
-}
+# include <Base.hpp>
 
-Data* Serializer::deserialize(uintptr_t raw)
+class B : public Base
 {
-	return ((Data *)(raw));
-}
+
+};
+
+#endif
