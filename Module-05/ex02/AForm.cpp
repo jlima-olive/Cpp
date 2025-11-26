@@ -33,7 +33,7 @@ void AForm::beSigned(Bureaucrat &obj)
 	{
 		std::cout << obj.getName() << " couldn't sign " << name
 				  << " because the Bureaucrats grading is too low" << std::endl;
-		throw GradeTooLowException();
+		throw (Bureaucrat::GradeTooLowException());
 	}
 	if (sign == false)
 	{
@@ -48,9 +48,9 @@ void	AForm::execute(Bureaucrat const & executor) const
 	{
 		std::cout << executor.getName() << " couldn't execute " << getName() << std::endl;
 		if (sign == true && executor.getGrade() > getGrade())
-			throw (GradeTooLowException());
+			throw (Bureaucrat::GradeTooLowException());
 	}
-	if (execute_func())
+	else if (execute_func())
 		std::cout << executor.getName() << " executed " << getName() << std::endl;
 }
 
@@ -113,10 +113,10 @@ void AForm::handle_exception(const int new_grade) const
 
 const char	*AForm::GradeTooHighException::what() const throw()
 {
-	return ("Grade cannot go bellow 1");
+	return ("Form grade too high");
 }
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return ("Grade cannot go bellow 1");
+	return ("Form grade too low");
 }

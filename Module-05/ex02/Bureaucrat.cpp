@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 12:29:54 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/26 12:38:57 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ void Bureaucrat::setGrade(int new_grade)
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade cannot go bellow 1");
+	return ("Bureaucrat grade too high");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade cannot go above 150");
+	return ("Bureaucrat grade too low");
 }
 
 void Bureaucrat::handle_exception(int new_grade)

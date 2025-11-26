@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:32:18 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 12:29:52 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/26 12:42:04 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int main(void)
 		Bureaucrat b3("bureau3", 150);
 		
 		// b1.executeForm(f3);
-		f3.execute(b1);
+		b3.signForm(f3);
+		f3.execute(b3);
 		// f1.beSigned(b1);
 		// f2.beSigned(b1);
 		// f3.beSigned(b1);
