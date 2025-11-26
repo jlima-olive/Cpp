@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:34:44 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 18:11:25 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/26 23:53:09 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,25 @@
 #include <B.hpp>
 #include <Base.hpp>
 #include <C.hpp>
+#include <unistd.h>
+#include <algorithm>
+#include <sys/time.h>
 
 Base::~Base()
 {
 	std::cout << "default destructor called" << std::endl;
+}
+
+Base * Base::generate(void)
+{
+	struct timeval	var;
+
+	gettimeofday(&var, NULL);
+	usleep(var.tv_usec % 10);
+	if (var.tv_usec % 9 + 1 > 6)
+		return new A;
+	else if (var.tv_usec % 9 + 1 > 3)
+		return new B;
+	else
+		return new C;
 }
