@@ -44,7 +44,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 int RobotomyRequestForm::execute_func() const
 {
     srand((unsigned)time(0)); 
-	if (rand() % 6 + 1 > 5)
+	if (rand() % 10 + 1 > 5)
 	{
 		std::cout << getTarget() << " could not be robotomized" << std::endl;
 		return (0);
