@@ -1,7 +1,7 @@
 
 CXX			= c++
 
-CXXFLAGS	=-I.  -Wall -Wextra -Werror  -std=c++98
+CXXFLAGS	= -I. -Wall -Wextra -Werror -std=c++98
 
 SRC_FILES	= main.cpp
 

@@ -6,52 +6,60 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:12:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 21:57:54 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/26 22:19:59 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
-#include <iostream>
+# include <iostream>
+# include <stdexcept>
 
 template <typename T>
 class Array
 {
 private:
-	T	*array;
-	int	size;
+	T				*array;
+	unsigned int	len;
 public:
 	Array() :
-	size(0),
-	array(new T[0])
+	array(new T[0]),
+	len(0)
 	{
 		std::cout << "Array default constructor called" << std::endl;
 	}
 	Array(unsigned int n) :
-	size(n),
-	array(new T[n])
+	array(new T[n]),
+	len(n)
 	{
 		std::cout << "Array argument constructor called" << std::endl;
 	}
 	Array(Array &obj) :
-	size(obj.size),
-	array(new T[obj.size])
+	array(new T[obj.len]),
+	len(obj.len)
 	{
-		for (size_t i = 0; i < size; i++)
+		for (size_t i = 0; i < len; i++)
 			array[i] = obj[i];
 		std::cout << "Array copy constructor called" << std::endl;
 	}
 	Array	&operator=(Array &obj)
 	{
 		delete []array;
-		size = obj.size;
-		array = new T[n];
-		for (size_t i = 0; i < size; i++)
+		len = obj.len;
+		array = new T[obj.len];
+		for (size_t i = 0; i < len; i++)
 			array[i] = obj[i];
 		std::cout << "Array copy assignment operator called" << std::endl;
 		return (*this);
 	}
+	class out_of_bounds : public std::exception
+	{
+		virtual const char *what() const throw()
+		{
+			return ("Couldnt access requested indice");
+		}
+	};
 	~Array()
 	{
 		delete []array;
@@ -59,13 +67,13 @@ public:
 	}
 	T	&operator[](unsigned int n)
 	{
-		if (n >= size)
-			throw (std::out_of_range());
+		if (n >= len)
+			throw (out_of_bounds());
 		return (array[n]);
 	}
 	unsigned int	size() const
 	{
-		return (size);
+		return (len);
 	}
 };
 
