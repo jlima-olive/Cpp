@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcs.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 19:07:52 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 20:19:48 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/26 20:18:52 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/26 20:33:56 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCS_HPP
-# define FUNCS_HPP
+#include <funcs.hpp>
+#include <string.h>
 
-# include <iostream> 
-
-template <typename T, typename L, typename F>
-void iter(T array, L lengh, F f)
+void add(char &ch)
 {
-	L	ind;
-
-	ind = 0;
-	while (ind < lengh)
-	{
-		f(array[ind]);
-		ind++;
-	}
+	if (ch != ' ' && ch)
+		ch++;
 }
 
-#endif
+template <typename T>
+void sub(T ch)
+{
+	if (ch != ' ' && ch)
+		ch--;
+}
+
+int main(void)
+{
+	char str[12];
+
+	strcpy(str, "hello world");
+	std::cout << str << std::endl;
+	iter(str, 12, sub<char &>);
+	std::cout << str << std::endl;
+	iter(str, 12, add);
+	std::cout << str << std::endl;
+
+}
