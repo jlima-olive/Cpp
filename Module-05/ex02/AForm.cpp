@@ -17,6 +17,11 @@ int AForm::getGrade() const
 	return (sign_grade);
 }
 
+const std::string AForm::getTarget() const
+{
+	return (target);
+}
+
 const std::string AForm::getName() const
 {
 	return (name);
@@ -51,10 +56,11 @@ void	AForm::execute(Bureaucrat const & executor) const
 
 int AForm::execute_func(void) const
 {
-	return 1;
+	return (1);
 }
 
 AForm::AForm() :
+target("target"),
 name("AForm"),
 sign(false),
 sign_grade(100),
@@ -63,7 +69,8 @@ exec_grade(75)
 	std::cout << "AForm default constructor called" << std::endl;	
 }
 
-AForm::AForm(std::string new_name, int sign_grade, int exec_grade) :
+AForm::AForm(std::string new_target, std::string new_name, int sign_grade, int exec_grade) :
+target(new_target),
 name(new_name),
 sign(false),
 sign_grade(sign_grade * (sign_grade < 151 && sign_grade > 0) + 100 * !(sign_grade < 151 && sign_grade > 0)),
@@ -76,6 +83,7 @@ exec_grade(exec_grade * (exec_grade < 151 && exec_grade > 0) + 75 * !(exec_grade
 }
 
 AForm::AForm(AForm &obj) :
+target(obj.target),
 name(obj.name),
 sign(obj.sign),
 sign_grade(obj.sign_grade),

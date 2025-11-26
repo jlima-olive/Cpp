@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 19:01:59 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 23:31:58 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/26 12:29:47 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() :
-AForm("ShrubberyCreationForm", 145, 137)
+AForm("tree", "ShrubberyCreationForm", 145, 137)
 {
 	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name) :
-AForm(name, 145, 137)
+AForm(name, "ShrubberyCreationForm", 145, 137)
 {
 	std::cout << "ShrubberyCreationForm argument constructor called" << std::endl;
 }
@@ -79,7 +79,7 @@ int ShrubberyCreationForm::execute_func() const
 {
 	std::string filename;
 
-	filename = getName() + "_shrubbery"; 
+	filename = getTarget() + "_shrubbery"; 
 
 	std::ofstream outfile(filename.c_str());
 	if (!outfile.is_open())

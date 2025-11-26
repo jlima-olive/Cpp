@@ -13,13 +13,13 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() :
-AForm("RobotomyRequestForm", 72, 45)
+AForm("Robot", "RobotomyRequestForm", 72, 45)
 {
 	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string name) :
-AForm(name, 72, 45)
+AForm(name, "RobotomyRequestForm", 72, 45)
 {
 	std::cout << "RobotomyRequestForm argument constructor called" << std::endl;
 }
@@ -46,10 +46,10 @@ int RobotomyRequestForm::execute_func() const
     srand((unsigned)time(0)); 
 	if (rand() % 6 + 1 > 5)
 	{
-		std::cout << getName() << " could not be robotomized" << std::endl;
+		std::cout << getTarget() << " could not be robotomized" << std::endl;
 		return (0);
 	}
 	std::cout << "* drilling noises *" << std::endl
-			  << getName() << " was robotomized" << std::endl;
+			  << getTarget() << " was robotomized" << std::endl;
 	return (1);
 }

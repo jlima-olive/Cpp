@@ -13,13 +13,13 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() :
-AForm("PresidentialPardonForm", 25, 5)
+AForm("villain", "PresidentialPardonForm", 25, 5)
 {
 	std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string name) :
-AForm(name, 25, 5)
+AForm(name, "PresidentialPardonForm", 25, 5)
 {
 	std::cout << "PresidentialPardonForm argument constructor called" << std::endl;
 }
@@ -43,6 +43,6 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 int PresidentialPardonForm::execute_func() const
 {
-	std::cout << getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	return (1);
 }

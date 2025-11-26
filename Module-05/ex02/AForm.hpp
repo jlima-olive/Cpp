@@ -17,6 +17,7 @@
 class AForm
 {
 private:
+	const std::string	target;
 	const std::string	name;
 	bool				sign;
 	const int			sign_grade;
@@ -27,9 +28,10 @@ public:
 	void	execute(Bureaucrat const & executor) const;
 	int		getGrade() const;
 	const std::string getName() const;
+	const std::string getTarget() const;
 	void	beSigned(Bureaucrat &obj);
 	AForm();
-	AForm(std::string new_name, int sign_grade, int exec_grade);
+	AForm(std::string new_target, std::string new_name, int sign_grade, int exec_grade);
 	AForm(AForm &obj);
 	AForm &operator=(AForm &obj);
 	~AForm();
