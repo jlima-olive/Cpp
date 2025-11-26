@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 13:27:34 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 16:47:04 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/26 17:08:09 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/26 17:13:16 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#include <Serializer.hpp>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-# include <iostream>
-
-class ScalarConverter
+int main(void)
 {
-public:
-	static void convert(const std::string str);
-	virtual void func(void) = 0;
-};
+	unsigned long int var;
+	Data *data;
 
-#endif
+	data = (Data *)malloc(sizeof(Data *));
+	
+	data->var = 123456789;
+
+	var = Serializer::serialize(data);
+	data = Serializer::deserialize (var);
+	std::cout << "data->var=" << data->var << std::endl;
+}

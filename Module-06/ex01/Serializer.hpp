@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 13:27:34 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 16:47:04 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/26 16:53:38 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/26 17:14:13 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#ifndef SERIALIZE_HPP
+# define SERIALIZE_HPP
 
-# include <iostream>
+#include <data.h>
+#include <iostream>
 
-class ScalarConverter
+class Serializer
 {
 public:
-	static void convert(const std::string str);
-	virtual void func(void) = 0;
+	virtual void func() = 0;
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
 };
 
 #endif

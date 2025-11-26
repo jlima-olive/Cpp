@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 13:27:34 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 16:47:04 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/26 16:46:06 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/26 17:14:46 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#ifndef DATA_H
+# define DATA_H
 
-# include <iostream>
-
-class ScalarConverter
+typedef struct s_data
 {
-public:
-	static void convert(const std::string str);
-	virtual void func(void) = 0;
-};
+	int	var;
+}	Data;
+
+typedef unsigned long int uintptr_t;
 
 #endif
