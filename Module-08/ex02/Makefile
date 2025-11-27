@@ -3,7 +3,7 @@ CXX			= c++
 
 CXXFLAGS	= -I. -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES	= main.cpp Span.cpp
+SRC_FILES	= main.cpp MutantStack.cpp
 
 OBJ_FILES	= ${SRC_FILES:.cpp=.o}
 

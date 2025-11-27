@@ -50,6 +50,10 @@
 		"cinttypes": "cpp",
 		"typeinfo": "cpp",
 		"cat.hpp": "c",
-		"animal.hpp": "c"
+		"animal.hpp": "c",
+		"list": "cpp",
+		"ranges": "cpp",
+		"span": "cpp",
+		"variant": "cpp"
 	}
 }
