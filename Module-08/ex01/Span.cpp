@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:29:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 14:58:18 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:21:07 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,11 @@ unsigned int Span::shortestSpan()
 	if (size == 0 || size == 1)
 		throw(cant_find_span());
 
-	int				ind1;
+	int				ind1 = 0;
 	int				ind2;
 	unsigned int	small = __INT_MAX__ * 2;
 	long			temp;
 
-	ind1 = 0;
 	while (ind1 < size)
 	{
 		ind2 = ind1 + 1;
@@ -83,8 +82,6 @@ unsigned int Span::shortestSpan()
 		{
 			temp = array[ind1] - array[ind2];
 			temp = temp * (temp > 0) - temp * (temp < 0);
-			// if (temp > big)
-			// big = temp;
 			small = temp * (temp < small) + small * (small <= temp);
 			// if (temp < small)
 			// small = temp;
@@ -99,12 +96,11 @@ unsigned int Span::longestSpan()
 	if (size == 0 || size == 1)
 		throw(cant_find_span());
 
-	int				ind1;
+	int				ind1 = 0;
 	int				ind2;
 	unsigned int	big = 0;
 	long			temp;
 
-	ind1 = 0;
 	while (ind1 < size)
 	{
 		ind2 = ind1 + 1;
@@ -115,8 +111,6 @@ unsigned int Span::longestSpan()
 			big = temp * (temp > big) + big * (big >= temp);
 			// if (temp > big)
 			// big = temp;
-			// if (temp < small)
-			// small = temp;
 		}
 		ind1++;
 	}
