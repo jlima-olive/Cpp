@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:29:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 15:21:07 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:45:55 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size(0)
 	std::cout << "Span default constructor called" << std::endl;
 }
 
-Span::Span(Span &obj) :
+Span::Span(const Span &obj):
 max_size(obj.max_size),
 size(obj.size),
 array(obj.array)
@@ -27,17 +27,18 @@ array(obj.array)
 	std::cout << "Span copy constructor called" << std::endl;
 }
 
-Span &Span::operator=(Span &obj)
+Span &Span::operator=(const Span &obj)
 {
 	size = obj.size;
 	size = obj.max_size;
 	array = obj.array;
 	std::cout << "Span copy assignment operator called" << std::endl;
+	return (*this);
 }
 
 Span::Span(unsigned int n) :
 max_size(n),
-size(n)
+size(0)
 {
 	std::cout << "Span argument constructor called" << std::endl;
 }
@@ -70,15 +71,15 @@ unsigned int Span::shortestSpan()
 	if (size == 0 || size == 1)
 		throw(cant_find_span());
 
-	int				ind1 = 0;
-	int				ind2;
-	unsigned int	small = __INT_MAX__ * 2;
+	unsigned int	ind1 = 0;
+	unsigned int	ind2;
+	unsigned int	small = (unsigned)__INT_MAX__ * 2;
 	long			temp;
 
 	while (ind1 < size)
 	{
-		ind2 = ind1 + 1;
-		while (ind2 < size)
+		ind2 = ind1;
+		while (++ind2 < size)
 		{
 			temp = array[ind1] - array[ind2];
 			temp = temp * (temp > 0) - temp * (temp < 0);
@@ -95,16 +96,16 @@ unsigned int Span::longestSpan()
 {
 	if (size == 0 || size == 1)
 		throw(cant_find_span());
-
-	int				ind1 = 0;
-	int				ind2;
+	
+	unsigned int	ind1 = 0;
+	unsigned int	ind2;
 	unsigned int	big = 0;
 	long			temp;
 
 	while (ind1 < size)
 	{
-		ind2 = ind1 + 1;
-		while (ind2 < size)
+		ind2 = ind1;
+		while (++ind2 < size)
 		{
 			temp = array[ind1] - array[ind2];
 			temp = temp * (temp > 0) - temp * (temp < 0);
@@ -115,4 +116,13 @@ unsigned int Span::longestSpan()
 		ind1++;
 	}
 	return (big);
+}
+
+void Span::insert(std::vector<int>::iterator &it, unsigned int n)
+{
+	for (size_t i = 0; i <= n; i++)
+	{
+		addNumber(*it);
+		it++;
+	}
 }
