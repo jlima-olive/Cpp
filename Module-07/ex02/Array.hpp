@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:12:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 22:19:59 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/27 17:56:36 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <stdexcept>
+# include <Array.tpp>
 
 template <typename T>
 class Array

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcs.hpp                                          :+:      :+:    :+:   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 19:07:52 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 17:53:48 by jlima-so         ###   ########.fr       */
+/*   Created: 2025/11/26 21:12:51 by jlima-so          #+#    #+#             */
+/*   Updated: 2025/11/27 17:57:55 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCS_HPP
-# define FUNCS_HPP
+#ifndef ARRAY_TPP
+# define ARRAY_TPP
 
-# include <iostream> 
-# include <funcs.tpp> 
-
-template <typename T>
-void swap(T &var1, T &var2);
+# include <iostream>
+# include <stdexcept>
+#include <Array.tpp>
 
 template <typename T>
-T max(T &var1, T &var2);
-
-template <typename T>
-T min(T &var1, T &var2);
-
-
+class Array;
 
 #endif
