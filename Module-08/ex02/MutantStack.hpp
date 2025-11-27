@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 15:58:34 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 19:25:17 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:57:40 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,55 +20,15 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-	class iterator
-	{
-	private:
-		unsigned int	it;
-		unsigned int	size;
-		bool			t_value;
-	public:
-		// iterator()
-		// {
-			// // size = 0;
-			// it = -1;
-			// // t_value = false;
-		// }
-		// iterator	&end()
-		// {
-			// t_value
-		// }
-		// iterator	&at(unsigned int n)
-		// {
-			// it = n;
-			// std::cout << "we're looking at:" << n << std::endl;
-		// }
-		// iterator(iterator	&obj);
-		// ~iterator();
-		// iterator	&operator=(iterator	&it);
-		// iterator	operator+(iterator	&it) const;
-		// iterator	operator-(iterator	&it) const;
-		// iterator	operator*(iterator	&it) const;
-		// iterator	&operator--(int);
-		// iterator	&operator--();
-		// iterator	&operator++(int);
-		// iterator	&operator++();
-		T			&operator*()
-		// bool		operator==(iterator	&it) const;
-	};
 	typedef typename std::stack<T>::container_type::iterator iterator;
-	iterator	&begin()
-	{
+	typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+	typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+	typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
-	}
-	iterator	&at()
-	{
-
-	}
-	iterator	&end()
-	{
-
-	}
-
+	MutantStack(){}
+	iterator at(unsigned int n){	return (this->c.at(n));	}
+	iterator end(){	return (this->c.end());	}
+	iterator begin(){	return (this->c.begin());	}
 };
 
 #endif
