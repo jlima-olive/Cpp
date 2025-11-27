@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 15:58:34 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 18:55:05 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:25:17 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ public:
 		T			&operator*()
 		// bool		operator==(iterator	&it) const;
 	};
+	typedef typename std::stack<T>::container_type::iterator iterator;
 	iterator	&begin()
 	{
 
