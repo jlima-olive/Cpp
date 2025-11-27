@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:29:20 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 15:45:55 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:53:51 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ unsigned int Span::longestSpan()
 
 void Span::insert(std::vector<int>::iterator &it, unsigned int n)
 {
-	for (size_t i = 0; i <= n; i++)
+	for (size_t i = 0; i < n; i++)
 	{
 		addNumber(*it);
 		it++;
