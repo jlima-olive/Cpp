@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:09:37 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 17:54:30 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:46:36 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main( void )
 	int a = 2;
 	int b = 3;
 
+	std::cout << "a = " << a << ", b = " << b << std::endl;
 	::swap( a, b );
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
