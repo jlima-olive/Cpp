@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:32:18 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/21 13:28:11 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:53:32 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main(void)
 		Bureaucrat b2("bureau2", 75);
 		Bureaucrat b3("bureau3", 150);
 		
-		f1.beSigned(b1);
-		f2.beSigned(b1);
-		f3.beSigned(b1);
+		// f1.beSigned(b1);
+		// f2.beSigned(b1);
+		// f3.beSigned(b1);
 		
 		f1.beSigned(b2);
 		f2.beSigned(b2);

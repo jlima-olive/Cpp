@@ -3,7 +3,7 @@ CXX			= c++
 
 CXXFLAGS	=-I.  -Wall -Wextra -Werror  -std=c++98
 
-SRC_FILES	= Bureaucrat.cpp main.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRC_FILES	= Bureaucrat.cpp main.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
 OBJ_FILES	= ${SRC_FILES:.cpp=.o}
 

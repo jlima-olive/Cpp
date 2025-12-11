@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:20:45 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 12:29:55 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:32:35 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	const std::string	&getName() const;
 	void	executeForm(const AForm & form) const;
 	void	upGrade();
-	void	downtGrade();
+	void	downGrade();
 	void	signForm(AForm &obj);
 	class GradeTooHighException : public std::exception
 	{

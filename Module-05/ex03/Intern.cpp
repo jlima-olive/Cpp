@@ -6,13 +6,10 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:00:24 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 18:24:01 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:26:52 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <PresidentialPardonForm.hpp>
-#include <RobotomyRequestForm.hpp>
-#include <ShrubberyCreationForm.hpp>
 #include <Intern.hpp>
 
 Intern::Intern()
@@ -22,12 +19,15 @@ Intern::Intern()
 
 Intern::Intern(Intern &obj)
 {
+	(void)obj;
 	std::cout << "Intern copy constructor called" << std::endl;
 }
 
 Intern &Intern::operator=(Intern &obj)
 {
+	(void)obj;
 	std::cout << "Intern copy assignment operator called" << std::endl;
+	return (*this);
 }
 
 Intern::~Intern()
@@ -53,5 +53,6 @@ AForm *Intern::makeForm(const std::string &form, const std::string &target) cons
 		return (new RobotomyRequestForm(target));
 	}
 	std::cout << "The Intern couldnt find that specific form, maybe we should pay him even less??" << std::endl;
+	return (NULL);
 }
 

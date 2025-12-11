@@ -14,6 +14,7 @@
 # define AFORM_HPP
 
 # include "Bureaucrat.hpp"
+
 class AForm
 {
 private:

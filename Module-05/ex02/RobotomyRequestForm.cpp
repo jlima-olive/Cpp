@@ -43,7 +43,10 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 int RobotomyRequestForm::execute_func() const
 {
-    srand((unsigned)time(0)); 
+	timeval var;
+
+	gettimeofday(&var, NULL);
+    srand(var.tv_usec); 
 	if (rand() % 10 + 1 > 5)
 	{
 		std::cout << getTarget() << " could not be robotomized" << std::endl;

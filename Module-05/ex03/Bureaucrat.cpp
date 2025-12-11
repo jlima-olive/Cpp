@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 12:38:57 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:31:53 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,14 @@ void Bureaucrat::handle_exception(int new_grade)
 
 void Bureaucrat::upGrade()
 {
-	handle_exception(grade + 1);
-	grade++;
-}
-
-void Bureaucrat::downtGrade()
-{
 	handle_exception(grade - 1);
 	grade--;
+}
+
+void Bureaucrat::downGrade()
+{
+	handle_exception(grade + 1);
+	grade++;
 }
 
 void	Bureaucrat::signForm(AForm &obj)

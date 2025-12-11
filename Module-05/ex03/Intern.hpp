@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:20:45 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 13:11:08 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:20:33 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <iostream>
 #include <string>
 #include <AForm.hpp>
+#include <PresidentialPardonForm.hpp>
+#include <RobotomyRequestForm.hpp>
+#include <ShrubberyCreationForm.hpp>
 
 class Intern
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/15 15:35:12 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:54:00 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void Bureaucrat::setGrade(int new_grade)
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade cannot go bellow 1");
+	return ("Bureaucrat Grade too high");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade cannot go above 150");
+	return ("Bureaucrat Grade too low");
 }
 
 void Bureaucrat::handle_exception(int new_grade)
@@ -80,14 +80,14 @@ void Bureaucrat::handle_exception(int new_grade)
 
 void Bureaucrat::upGrade()
 {
-	handle_exception(grade + 1);
-	grade++;
+	handle_exception(grade - 1);
+	grade--;
 }
 
 void Bureaucrat::downGrade()
 {
-	handle_exception(grade - 1);
-	grade--;
+	handle_exception(grade + 1);
+	grade++;
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)

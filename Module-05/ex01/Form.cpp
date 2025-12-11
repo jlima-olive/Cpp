@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:48:50 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/21 13:21:33 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:58:03 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void Form::beSigned(Bureaucrat &obj)
 	{
 		std::cout << obj.getName() << " couldn't sign " << name
 				  << " because the Bureaucrats grading is too low" << std::endl;
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	}
 	if (sign == false)
 	{
@@ -86,10 +86,10 @@ void Form::handle_exception(int new_grade)
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade cannot go bellow 1");
+	return ("Form Grade too high");
 }
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade cannot go bellow 1");
+	return ("Form Grade too low");
 }

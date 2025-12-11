@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:34:41 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/25 21:01:32 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:39:07 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Form
 {
 private:
 	const std::string	name;
-	bool				sign = false;
+	bool				sign;
 	const int			sign_grade;
 	const int			exec_grade;
 public:
