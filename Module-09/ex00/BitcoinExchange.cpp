@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:54:01 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/21 16:21:46 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/21 18:10:19 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,11 +195,11 @@ void	BitcoinExchange::builtDataBase(std::string file)
 		if (key == "date,exchange_rate")
 			continue ;
 		validInput(key, stream);
-	}
-		
+	} 
 }
-	
-void	BitcoinExchange::useDataBase(std::string file)
+
+// template <typename T>
+void	BitcoinExchange::useDataBase(std::string file/* , T f */)
 {
 	std::string		key;
 	std::ifstream	infile(file.c_str());
@@ -215,6 +215,5 @@ void	BitcoinExchange::useDataBase(std::string file)
 
 		validOutput(key, stream);
 	}
-		
 }
 	
