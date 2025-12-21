@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:59:15 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/21 02:04:18 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/21 04:04:39 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 # include <string>
 # include <iterator>
 # include <sstream>
+
+typedef enum error_enum
+{
+	DATE,
+	BIG,
+	SMALL,
+	INPUT
+} erro_id;
 
 class BitcoinExchange
 {

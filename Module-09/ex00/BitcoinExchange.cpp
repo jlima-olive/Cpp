@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:54:01 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/21 03:47:05 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/21 04:16:17 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,19 @@ int	valid_day(int year, int month, int day)
 
 }
 
+void	printErrorMsg(erro_id num, std::string &key)
+{
+	if (num == INPUT)
+		std::cout << "Error: bad input => " << key << std::endl;
+	else if (num == DATE)
+		std::cout << "Error: not a valid date." << std::endl;
+	else if (num == SMALL)
+			std::cout << "Error: not a positive number." << std::endl;
+	else if (num == BIG)
+		std::cout << "Error: too large a number." << std::endl;
+
+}
+
 int	BitcoinExchange::validInpout(std::string &key, std::stringstream &stream)
 {
 	int		year;
@@ -101,29 +114,33 @@ int	BitcoinExchange::validInpout(std::string &key, std::stringstream &stream)
 	pos = key.find(',');
 	stream << key.substr(0, pos);
 	if (isdigit(stream.peek()) == 0)
-		return (std::cout << "Error: bad input => " << key << std::endl, 0);
+		return (printErrorMsg(INPUT, key), 0);
 	stream >> year;
 	if (stream.get() != '-')
-		return (std::cout << "Error: bad input => " << key << std::endl, 0);
+		return (printErrorMsg(INPUT, key), 0);
 	if (isdigit(stream.peek()) == 0)
-		return (std::cout << "Error: bad input => " << key << std::endl, 0);
+		return (printErrorMsg(INPUT, key), 0);
 	stream >> month;
 	if (month > 12)
-		return (std::cout << "Error: not a valid date" << std::endl, 0);
+		return (printErrorMsg(DATE, key), 0);
 	if (stream.get() != '-')
-		return (std::cout << "Error: bad input => " << key << std::endl, 0);
+		return (printErrorMsg(INPUT, key), 0);
 	if (isdigit(stream.peek()) == 0)
-		return (std::cout << "Error: bad input => " << key << std::endl, 0);
+		return (printErrorMsg(INPUT, key), 0);
 	stream >> day;
 	if (valid_day(year, month, day) == 0)
-		return (std::cout << "Error: not a valid date" << std::endl, 0);
+		return (printErrorMsg(DATE, key), 0);
 	stream.clear();
 	stream << key.substr(pos + 1);
 	if (isdigit(stream.peek()) == 0)
-		return (std::cout << "Error: bad input => " << key << std::endl, 0);
+		return (printErrorMsg(INPUT, key), 0);
 	stream >> value;
 	if (!stream.eof())
-		return (0);
+		return (printErrorMsg(INPUT, key), 0);
+	if (value > 1000)
+		return (printErrorMsg(BIG, key), 0);
+	if (value < 0)
+		return (printErrorMsg(SMALL, key), 0);
 	datab.insert(std::make_pair(key.substr(0, pos), value));
 	return (1);
 
