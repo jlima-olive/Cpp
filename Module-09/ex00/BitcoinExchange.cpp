@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:54:01 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/21 16:17:58 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/21 16:21:46 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	printErrorMsg(erro_id num, std::string &key)
 			std::cout << "Error: not a positive number." << std::endl;
 	else if (num == BIG)
 		std::cout << "Error: too large a number." << std::endl;
-
 }
 
 int	BitcoinExchange::validOutput(std::string &key, std::stringstream &stream)
@@ -186,7 +185,7 @@ void	BitcoinExchange::builtDataBase(std::string file)
 
 	if (!infile.is_open())
 	{
-		std::cout  << "Coudn't open file:" << file.c_str() << std::endl;
+		std::cout  << "Coudn't open file: " << file.c_str() << std::endl;
 		return ;
 	}
 	while (getline(infile, key))
@@ -207,7 +206,7 @@ void	BitcoinExchange::useDataBase(std::string file)
 
 	if (!infile.is_open())
 	{
-		std::cout  << "Coudn't open file:" << file.c_str() << std::endl;
+		std::cout  << "Coudn't open file: " << file.c_str() << std::endl;
 		return ;
 	}
 	while (getline(infile, key))
