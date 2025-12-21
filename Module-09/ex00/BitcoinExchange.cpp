@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:54:01 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/21 16:15:46 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/21 16:17:58 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ void	BitcoinExchange::builtDataBase(std::string file)
 	if (!infile.is_open())
 	{
 		std::cout  << "Coudn't open file:" << file.c_str() << std::endl;
-		throw (DataBaseError());
+		return ;
 	}
 	while (getline(infile, key))
 	{
@@ -197,8 +197,6 @@ void	BitcoinExchange::builtDataBase(std::string file)
 			continue ;
 		validInput(key, stream);
 	}
-	// for (std::map<std::string, float>::iterator it = datab.begin(); it != datab.end(); it++)
-		// std::cout << '|' << it->first << '|' << ' ' << '|' << it->second << '|' << std::endl;
 		
 }
 	
@@ -210,7 +208,7 @@ void	BitcoinExchange::useDataBase(std::string file)
 	if (!infile.is_open())
 	{
 		std::cout  << "Coudn't open file:" << file.c_str() << std::endl;
-		throw (DataBaseError());
+		return ;
 	}
 	while (getline(infile, key))
 	{
@@ -221,12 +219,3 @@ void	BitcoinExchange::useDataBase(std::string file)
 		
 }
 	
-const char *BitcoinExchange::ObjectNotInitialized::what() const throw()
-{
-	return ("Object was not initialized");
-}
-	
-const char *BitcoinExchange::DataBaseError::what() const throw()
-{
-	return ("There was an error with the Data Base");
-}

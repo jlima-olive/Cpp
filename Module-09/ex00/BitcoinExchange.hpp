@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:59:15 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/21 15:50:56 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/21 16:17:42 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,6 @@ public:
 	int		validInput(std::string &key, std::stringstream &stream);
 	void	useDataBase(std::string file);
 	int		validOutput(std::string &key, std::stringstream &stream);
-	
-	class ObjectNotInitialized : public std::exception
-	{
-		virtual const char *what() const throw();
-	};
-	class DataBaseError : public std::exception
-	{
-		virtual const char *what() const throw();
-	};
 };
 
 #endif
