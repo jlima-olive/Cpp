@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:59:15 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/18 19:45:19 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/21 02:04:18 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ private:
 	int						init;
 public:
 	BitcoinExchange();
-	BitcoinExchange(std::string file, char ch);
+	BitcoinExchange(std::string file);
 	BitcoinExchange(BitcoinExchange &ref);
 	~BitcoinExchange();
 	BitcoinExchange &operator=(BitcoinExchange &ref);
 
-	void	readDataBase(std::string file, char ch);
+	void	builtDataBase(std::string file);
+	int		validInpout(std::string &key, std::stringstream &stream);
+
 	void	outputDataBaseMult(BitcoinExchange &db);
 	
 	class ObjectNotInitialized : public std::exception

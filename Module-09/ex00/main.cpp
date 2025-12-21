@@ -1,6 +1,9 @@
 #include <BitcoinExchange.hpp>
 
-int main(void)
+int main(int ac, char **av)
 {
-	BitcoinExchange input("input.txt", '|');
+	if (ac != 2)
+		std::cout << "" << std::endl;
+	BitcoinExchange input("data.csv");
+	// BitcoinExchange input("input.txt", '|');
 }
