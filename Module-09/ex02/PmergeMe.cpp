@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/28 00:16:48 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/28 00:20:40 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,15 +141,15 @@ void	tmplSwap(std::vector<long> &tmpl, int gsize, int indl, int indr)
 {
 	long	temp;;
 
-	int	ind1 = indr - gsize;
-	for (int ind = indl - gsize; ind < indl; ind++)
+	int	ind2 = indr - gsize;
+	for (int ind1 = indl - gsize; ind1 < indl; ind1++)
 	{
-		// std::cout << std::endl << "swaping " << ind << " with " << ind1 << std::endl;
-		// std::cout << std::endl << "swaping " << tmpl[ind] << " with " << tmpl[ind1] << std::endl;
-		temp = tmpl[ind];
-		tmpl[ind] = tmpl[ind1];
-		tmpl[ind1] = temp;
-		ind1++;
+		// std::cout << std::endl << "swaping " << ind1 << " with " << ind2 << std::endl;
+		// std::cout << std::endl << "swaping " << tmpl[ind1] << " with " << tmpl[ind2] << std::endl;
+		temp = tmpl[ind1];
+		tmpl[ind1] = tmpl[ind2];
+		tmpl[ind2] = temp;
+		ind2++;
 	}
 }
 
