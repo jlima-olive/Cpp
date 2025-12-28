@@ -7,6 +7,8 @@ int	jacobsthal(unsigned int n)
 		return (0);
 	if (n == 1)
 		return (1);
+	// if (n == 2)
+		// return (1);
 	return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
 }
 
