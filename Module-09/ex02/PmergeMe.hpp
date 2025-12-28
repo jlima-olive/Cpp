@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:09:26 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/27 21:32:52 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/27 22:49:45 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include <iostream>
 #include <sstream>
-#include <unordered_map>
-// #include <map>
+#include <deque>
+#include <vector>
 
 class PmergeMe
 {
@@ -28,7 +28,6 @@ public:
 	~PmergeMe();
 	PmergeMe(PmergeMe &ref);
 	PmergeMe &operator=(PmergeMe &ref);
-
 	class Error : public std::exception
 	{
 		virtual const char *what() const throw();
