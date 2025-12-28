@@ -6,12 +6,21 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/28 02:32:56 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/28 05:17:35 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <PmergeMe.hpp>
 #include <string.h>
+
+int	jacobsthal(unsigned int n)
+{
+	if (n == 0)
+		return (0);
+	if (n == 1)
+		return (1);
+	return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
+}
 
 const char *PmergeMe::Error::what() const throw()
 {
@@ -74,8 +83,7 @@ std::deque<long>	streamToDeque(std::stringstream &s)
 		s >> value1;
 		if (value1 > __INT_MAX__)
 		{
-				std::cout << "error 2" << std::endl;
-
+			std::cout << "error 2" << std::endl;
 			throw(PmergeMe::Error());
 		}
 		deque[ind] = value1;
@@ -84,8 +92,7 @@ std::deque<long>	streamToDeque(std::stringstream &s)
 		s >> value2;
 		if (value2 > __INT_MAX__)
 		{
-				std::cout << "error 2" << std::endl;
-			
+			std::cout << "error 2" << std::endl;
 			throw(PmergeMe::Error());
 		}
 		if (value1 > value2)
@@ -99,7 +106,6 @@ std::deque<long>	streamToDeque(std::stringstream &s)
 	return (deque);
 }
 
-// template <typename T>
 std::vector <long>	streamToTemplate(std::stringstream &s)
 {
 	std::vector <long>		tmpl;
@@ -186,14 +192,24 @@ void	separateElements(long unsigned gsize, std::vector<long> &tmpl, std::vector<
 	}
 }
 
+void	insertAt(std::vector<long> &upper, int uind, std::vector<long> &lower, int lind, int gsize)
+{
+	std::vector<long>::iterator uit = upper.begin();
+	uind -= gsize;
+	lind -= gsize;
+
+	for (int ind = 0; ind < gsize; ind++)
+		upper.insert((uit + uind + ind), lower[uind + ind]);
+}
+
 void organizeGroups(int gsize, std::vector<long> &tmpl)
 {
 	std::vector<long> upper;
 	std::vector<long> lower;
 
- 	separateElements(gsize, tmpl, upper, lower);
-	std::cout << "upper-> ";
-	// tmpl.clear();
+	upper.reserve(tmpl.size());
+	separateElements(gsize, tmpl, upper, lower);
+	std::cout << "old upper-> ";
 	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
 	{
 		int	size = 0;
@@ -212,7 +228,7 @@ void organizeGroups(int gsize, std::vector<long> &tmpl)
 	}
 	std::cout << std::endl;
 	std::cout << std::endl;
-	std::cout << "lower-> ";
+	std::cout << "old lower-> ";
 	for (std::vector<long>::iterator it = lower.begin(); it != lower.end(); it+=gsize)
 	{
 		int	size = 0;
@@ -229,6 +245,44 @@ void organizeGroups(int gsize, std::vector<long> &tmpl)
 			}
 		}
 	}
+	// std::vector<long>::iterator lit = upper.begin();
+	insertAt(upper, gsize, lower, gsize, gsize);
+	int	jind = 3;
+	int ind;
+	int pos;
+	int oldind;
+	while (1)
+	{
+		oldind = jacobsthal(jind - 1);
+		ind = jacobsthal(jind);
+		while (lower.size() < gsize * ind - 1)
+		{
+			if (ind <= oldind)
+				break ;
+			ind--;
+		}
+		insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
+		jind++;
+	}
+	
+	// for (ind = 2; ; ind++)
+	// {
+		// gsize * ind - 1;
+	// }
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "new upper-> ";
+	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it += 2)
+	{
+		std::cout << *it;
+		if (it + 1 != upper.end())
+			std::cout << '-' << *(it + 1) << ',';
+		else
+			break;
+	}
+
+
 	std::cout << std::endl;
 	std::cout << std::endl;
 }

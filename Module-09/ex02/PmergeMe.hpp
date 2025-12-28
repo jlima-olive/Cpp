@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:09:26 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/27 22:49:45 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/28 03:28:21 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <sstream>
 #include <deque>
 #include <vector>
+#include <cstdlib>
 
 class PmergeMe
 {
@@ -33,5 +34,7 @@ public:
 		virtual const char *what() const throw();
 	};
 };
+
+int	jacobsthal(unsigned int n);
 
 #endif
