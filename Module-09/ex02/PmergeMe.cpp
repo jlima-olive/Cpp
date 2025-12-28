@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/28 05:17:35 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/28 06:03:15 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,6 @@ std::vector <long>	streamToTemplate(std::stringstream &s)
 			std::cout << "error 5" << std::endl;
 			throw(PmergeMe::Error());
 		}
-		// if (value1 > value2)
-		// {
-			// tmpl.at(ind) = value2;
-			// value2 = value1;
-		// }
 		ind++;
 		tmpl.push_back(value2);
 	}
@@ -202,7 +197,7 @@ void	insertAt(std::vector<long> &upper, int uind, std::vector<long> &lower, int 
 		upper.insert((uit + uind + ind), lower[uind + ind]);
 }
 
-void organizeGroups(int gsize, std::vector<long> &tmpl)
+void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 {
 	std::vector<long> upper;
 	std::vector<long> lower;
@@ -212,7 +207,7 @@ void organizeGroups(int gsize, std::vector<long> &tmpl)
 	std::cout << "old upper-> ";
 	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
 	{
-		int	size = 0;
+		long unsigned	size = 0;
 		std::cout << '\t';
 		std::cout << *it;
 		while (++size < gsize)
@@ -231,7 +226,7 @@ void organizeGroups(int gsize, std::vector<long> &tmpl)
 	std::cout << "old lower-> ";
 	for (std::vector<long>::iterator it = lower.begin(); it != lower.end(); it+=gsize)
 	{
-		int	size = 0;
+		long unsigned	size = 0;
 		std::cout << '\t';
 		std::cout << *it;
 		while (++size < gsize)
@@ -255,14 +250,23 @@ void organizeGroups(int gsize, std::vector<long> &tmpl)
 	{
 		oldind = jacobsthal(jind - 1);
 		ind = jacobsthal(jind);
+		pos = oldind + 1;
 		while (lower.size() < gsize * ind - 1)
 		{
 			if (ind <= oldind)
 				break ;
 			ind--;
 		}
-		insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
-		jind++;
+		pos = oldind;
+		while (something)
+		{
+			oldind /= 2;
+			pos +-= oldind;
+			if ()
+				insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
+			jind++;
+		}
+		
 	}
 	
 	// for (ind = 2; ; ind++)
