@@ -7,8 +7,6 @@ int	jacobsthal(unsigned int n)
 		return (0);
 	if (n == 1)
 		return (1);
-	// if (n == 2)
-		// return (1);
 	return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
 }
 
@@ -19,7 +17,7 @@ int main (int ac, char **av)
 	try
 	{
 		std::cout << jacobsthal(8) << std::endl;
-		exit(0);
+		// exit(0);
 		PmergeMe (av + 1);
 	}
 	catch (std::exception &e)

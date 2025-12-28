@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/28 00:20:40 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/28 00:49:53 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,11 @@ T	streamToTemplate(std::stringstream &s)
 			std::cout << "error 5" << std::endl;
 			throw(PmergeMe::Error());
 		}
-		if (value1 > value2)
-		{
-			tmpl.at(ind) = value2;
-			value2 = value1;
-		}
+		// if (value1 > value2)
+		// {
+			// tmpl.at(ind) = value2;
+			// value2 = value1;
+		// }
 		ind++;
 		tmpl.push_back(value2);
 	}
@@ -158,11 +158,20 @@ void	FordJohnson(unsigned long gsize, std::vector<long> tmpl)
 {
 	std::cout << std::endl << "size is " << gsize << std::endl;
 
-	if (gsize == 2)
+	std::cout << std::endl;
+	if (gsize == 1)
 	{
-		for (std::vector<long>::iterator it = tmpl.begin(); it != tmpl.end() && it + 1 != tmpl.end(); it += 2)
-			std::cout << *it << '-' << *(it + 1) << ',';
+		for (std::vector<long>::iterator it = tmpl.begin(); it != tmpl.end(); it += 2)
+		{
+			std::cout << *it;
+			if (it + 1 != tmpl.end())
+				std::cout << '-' << *(it + 1) << ',';
+			else
+				break;
+		}
 	}
+	std::cout << std::endl;
+
 	for(int ind = 1; tmpl.size() > gsize * (ind + 1) - 1; ind += 2)
 		if (tmpl[gsize * ind - 1] > tmpl[gsize * (ind + 1) - 1])
 		{
@@ -172,11 +181,19 @@ void	FordJohnson(unsigned long gsize, std::vector<long> tmpl)
 		}
 	// std::cout << std::endl << "size is " << gsize << std::endl;
 	std::cout << std::endl;
-	for (std::vector<long>::iterator it = tmpl.begin(); it != tmpl.end() && it + 1 != tmpl.end(); it += 2)
-		std::cout << *it << '-' << *(it + 1) << ',';
+	for (std::vector<long>::iterator it = tmpl.begin(); it != tmpl.end(); it += 2)
+	{
+		std::cout << *it;
+		if (it + 1 != tmpl.end())
+			std::cout << '-' << *(it + 1) << ',';
+		else
+			break;
+	}
 	std::cout << std::endl;
 	if (tmpl.size() >= (gsize * 2) * 2)
 		FordJohnson((gsize * 2), tmpl);
+	// if (tmpl.size() > (gsize * 2) * 2)
+		// organizeGroups(gsize, tmpl);
 	// std::cout << "\n\n\n\n\n";
 	// for (std::vector<long>::iterator it; it != tmpl.end() && it + 1 != tmpl.end(); it += 2)
 		// std::cout << *it << '-' << *(it + 1) << ',';
@@ -203,7 +220,7 @@ PmergeMe::PmergeMe(char **mat)
 		std::cout << "here2 " << std::endl;
 	}
 	// startTimer();
-	FordJohnson(2, streamToTemplate<std::vector<long> >(s));
+	FordJohnson(1, streamToTemplate<std::vector<long> >(s));
 	// endTimer();
 
 	// startTimer();
