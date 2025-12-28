@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/28 01:54:03 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/28 02:32:56 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,10 @@ std::deque<long>	streamToDeque(std::stringstream &s)
 	return (deque);
 }
 
-template <typename T>
-T	streamToTemplate(std::stringstream &s)
+// template <typename T>
+std::vector <long>	streamToTemplate(std::stringstream &s)
 {
-	T		tmpl;
+	std::vector <long>		tmpl;
 	long	value1;
 	long	value2;
 
@@ -131,7 +131,7 @@ T	streamToTemplate(std::stringstream &s)
 		ind++;
 		tmpl.push_back(value2);
 	}
-	for(typename T::iterator it = tmpl.begin(); it != tmpl.end(); it++)
+	for(std::vector <long>::iterator it = tmpl.begin(); it != tmpl.end(); it++)
 		std::cout << *it << std::endl;
 	std::cout << "were done";
 	return (tmpl);
@@ -174,8 +174,15 @@ void	separateElements(long unsigned gsize, std::vector<long> &tmpl, std::vector<
 		// indl = gsize * ind - 1;
 		std::cout << "lower" << std::endl;
 		addToTmpl(lower, tmpl, gsize, gsize * ind);
+		// if (tmpl.size() <= gsize * (ind + 1) - 1)
+			// break;
 		std::cout << "upper" << std::endl;
 		addToTmpl(upper, tmpl, gsize, gsize * (ind + 1));
+		if (tmpl.size() <= gsize * (ind + 3) - 1 && tmpl.size() > gsize * (ind + 2) - 1)
+		{
+			std::cout << "lower" << std::endl;
+			addToTmpl(lower, tmpl, gsize, gsize * (ind + 2));
+		}
 	}
 }
 
@@ -186,32 +193,48 @@ void organizeGroups(int gsize, std::vector<long> &tmpl)
 
  	separateElements(gsize, tmpl, upper, lower);
 	std::cout << "upper-> ";
-	tmpl.clear();
-	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=2)
+	// tmpl.clear();
+	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
 	{
-		std::cout << '\t' << *it;
-		if (it + 1 != upper.end())
-			std::cout << '-' << *(it + 1) << ',';
-		else
-			break;
+		int	size = 0;
+		std::cout << '\t';
+		std::cout << *it;
+		while (++size < gsize)
+		{
+			if (it + size != upper.end())
+				std::cout << '-' << *(it + size);
+			else
+			{
+				std::cout << ',';
+				break;
+			}
+		}
 	}
 	std::cout << std::endl;
 	std::cout << std::endl;
 	std::cout << "lower-> ";
-	for (std::vector<long>::iterator it = lower.begin(); it != lower.end(); it+=2)
+	for (std::vector<long>::iterator it = lower.begin(); it != lower.end(); it+=gsize)
 	{
-		std::cout << '\t' << *it;
-		if (it + 1 != lower.end())
-			std::cout << '-' << *(it + 1) << ',';
-		else
-			break;
+		int	size = 0;
+		std::cout << '\t';
+		std::cout << *it;
+		while (++size < gsize)
+		{
+			if (it + size != lower.end())
+				std::cout << '-' << *(it + size);
+			else
+			{
+				std::cout << ',';
+				break;
+			}
+		}
 	}
 	std::cout << std::endl;
 	std::cout << std::endl;
 }
 
 // template <typename T>
-void	FordJohnson(unsigned long gsize, std::vector<long> tmpl)
+void	FordJohnson(unsigned long gsize, std::vector<long> &tmpl)
 {
 	std::cout << std::endl;
 	if (gsize == 1)
@@ -246,9 +269,10 @@ void	FordJohnson(unsigned long gsize, std::vector<long> tmpl)
 	{
 		FordJohnson((gsize * 2), tmpl);
 		std::cout << std::endl << "size = " << gsize << std::endl;
-		if (tmpl.size() > (gsize * 2) * 2)
-			organizeGroups(gsize, tmpl);
 	}
+	if (tmpl.size() > (gsize * 2) * 2)
+		organizeGroups(gsize, tmpl);
+
 	// std::cout << "\n\n\n\n\n";
 	// for (std::vector<long>::iterator it; it != tmpl.end() && it + 1 != tmpl.end(); it += 2)
 		// std::cout << *it << '-' << *(it + 1) << ',';
@@ -275,7 +299,8 @@ PmergeMe::PmergeMe(char **mat)
 		std::cout << "here2 " << std::endl;
 	}
 	// startTimer();
-	FordJohnson(1, streamToTemplate<std::vector<long> >(s));
+	std::vector <long> tmpl = streamToTemplate(s); 
+	FordJohnson(1, tmpl);
 	// endTimer();
 
 	// startTimer();
