@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/29 19:07:18 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/29 21:28:12 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,12 +190,15 @@ void	separateElements(long unsigned gsize, std::vector<long> &tmpl, std::vector<
 void	insertAt(std::vector<long> &upper, int uind, std::vector<long> &lower, int lind, int gsize)
 {
 	std::vector<long>::iterator uit = upper.begin();
-	uind -= gsize;
-	lind -= gsize;
 
 	std::cout  << std::endl;
 	for (int ind = 0; ind < gsize; ind++)
 		upper.insert((uit + uind + ind), lower[lind + ind]);
+}
+
+int	tmplfunc(std::vector<long> &tmpl, int gsize, int ind)
+{
+	return (tmpl[((ind + 1) * gsize) - 1]);
 }
 
 void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower, int gsize, int ind)
@@ -204,68 +207,70 @@ void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower
 	int	pos;
 
 	pos = resize / 2;
-	if (pos == 0)
-		pos = 2;
-	resize = resize / 2 + 1;
+	resize = resize / 2;
 	std::cout << "upsize/gsize :" << upsize << '/' << gsize << std::endl;
-	std::cout << "inserting element :" << lower[ind * gsize - 1] << std::endl;
-	while (upsize > pos * gsize && resize > 0)
+	while (upsize >= ((pos + 1) * gsize) - 1 && resize >= 0)
 	{
 		std::cout << "pos :" << pos << std::endl;
-		if (upper[pos * gsize - 1] > lower[gsize * ind - 1])
+		if (tmplfunc(upper, gsize, pos) > tmplfunc(lower, gsize, ind))
 		{
-			std::cout << "(upper[" <<pos * gsize - 1 << "]" << "> lower[" << gsize * ind - 1<< "])" << std::endl;
-			std::cout << "(" << upper[pos * gsize - 1] << '>' << lower[gsize * ind - 1] << ")" << std::endl;
-			std::cout << "resize :" << resize << std::endl;
+			std::cout << "(upper[" << ((pos + 1) * gsize) - 1  << "]" << "> lower[" << ((ind + 1) * gsize) - 1  << "])" << std::endl;
+			std::cout << "(" << tmplfunc(upper, gsize, pos) << '>' << tmplfunc(lower, gsize, ind) << ")" << std::endl;
+			std::cout << "resize :" << resize << std::endl << std::endl;
 			if (pos <= 0)
 			{
-				pos = 1;
+				std::cout << "3" << std::endl;
+				pos = 0;
 				break;
 			}
-			pos -= resize;
+			pos -= resize + (resize == 0);
 			if (pos < 0)
 			{
-				pos = 1;
+				pos = 0;
 			}
 			// std::cout << "pos :" << pos << std::endl;
 		}
 		else
 		{
-			std::cout << "(" << upper[pos * gsize - 1] << '<' << lower[gsize * ind - 1] << ")" << std::endl;
-			// std::cout << "pos :" << pos << std::endl;
-			std::cout << "resize :" << resize << std::endl;
-			if (pos > upsize / gsize)
+			std::cout << "(upper[" << ((pos + 1) * gsize) - 1  << "]" << "< lower[" << ((ind + 1) * gsize) - 1  << "])" << std::endl;
+			std::cout << "(" << tmplfunc(upper, gsize, pos) << '<' << tmplfunc(lower, gsize, ind) << ")" << std::endl;
+			std::cout << "resize :" << resize << std::endl << std::endl;
+			if (pos >= upsize / gsize)
 			{
+				std::cout << "2" << std::endl;
 				pos = upsize / gsize;
 				break;
 			}
-			pos += resize;
+			pos += resize + (resize == 0);
 			if (pos > upsize / gsize)
 			{
 				pos = upsize / gsize;
 			}
 			// std::cout << "pos :" << pos << std::endl;
 		}
+		if (resize == 0)
+			break ;
 		resize /= 2;
 		// if (pos <= gsize)
 			// break;
 	}
+	std::cout << (upsize >= ((pos + 1) * gsize) - 1)  << "&&"  << (resize >= 0) << std::endl;
 	if (pos == 0)
 	{
 		// std::cout << "inserting : " << lower[ind * gsize - 1] << " in upper[" << 0 << ']' << std::endl;
-		insertAt(upper, gsize, lower, ind * gsize, gsize);
+		insertAt(upper, 0, lower, ind * gsize, gsize);
 	}
 	else if (upsize >= pos * gsize)
 	{
 		// std::cout << "inserting upsize is :" << upsize << " this ammout of elements :" << gsize << std::endl;
 		// std::cout << "inserting : " << lower[ind * gsize - 1] << " in upper[" << pos + 1 << ']' << std::endl;
-		insertAt(upper, (pos + 1) * gsize, lower, ind * gsize, gsize);
+		insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
 	}
 	else
 	{
 		// std::cout << "inserting upsize is :" << upsize << " this ammout of elements :" << gsize << std::endl;
 		// std::cout << "inserting : " << lower[ind * gsize - 1] << "in " << '[' << upsize / gsize << ']' << std::endl;
-		insertAt(upper, upsize + gsize, lower, ind * gsize, gsize);
+		insertAt(upper, upsize, lower, ind * gsize, gsize);
 	}
 }
 
@@ -319,8 +324,8 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 			}
 		}
 	}
-	insertAt(upper, gsize, lower, gsize, gsize);
-	std::cout << "new upper-> ";
+	insertAt(upper, 0, lower, 0, gsize);
+	std::cout << "\t\t\t newupper-> ";
 	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
 	{
 		long unsigned	size = 0;
@@ -348,29 +353,30 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 	{
 		oldind = jacobsthal(jind - 1);
 		pos = jacobsthal(jind);
-		if (lower.size() <= gsize * pos - 1)
+		if (lower.size() < ((pos + 1) * gsize) - 1)
 			flag = 1;
 		std::cout << std::endl << "\t\t\t\t\t\tim not gonna start looking in :" << pos;
-		while (lower.size() <= gsize * pos - 1)
+		while (lower.size() < ((pos + 1) * gsize) - 1)
 		{
 			pos--;
-			if (pos <= oldind)
+			if (pos < oldind)
 				break ;
 		}
 		std::cout << std::endl << "\t\t\t\t\t\tim gonna start looking in :" << pos << std::endl;
-		for (int ind = pos; ind > oldind; ind--)
+		for (int ind = pos - 1; ind >= oldind - 1; ind--)
 		{
-			if (copy.size() > gsize * ind - 1)
+			std::cout << "jacob = " << ind << std::endl;
+			if (copy.size() > ((ind + 1) * gsize) - 1)
 			{
-				std::cout << "find limit is :" << find(upper, oldind, copy[gsize * ind - 1]) + 1 << std::endl;
-				binaryInsert(upper, find(upper, oldind, copy[gsize * ind - 1]) + 1, lower, gsize, ind);
+				std::cout << "find limit is :" << find(upper, oldind, copy[((pos + 1) * gsize) - 1]) + 1 << std::endl;
+				binaryInsert(upper, find(upper, oldind, copy[((pos + 1) * gsize) - 1]) + 1, lower, gsize, ind);
 			}
 			else
 			{
 				std::cout << "size limit is :" << upper.size() << std::endl;
 				binaryInsert(upper, upper.size(), lower, gsize, ind);
 			}
-			std::cout << "new upper-> ";
+			std::cout << "\t\t\t newupper-> ";
 			for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
 			{
 				long unsigned	size = 0;
@@ -417,11 +423,11 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 
 	std::cout << std::endl;
 	std::cout << std::endl;
-	std::cout << "new upper-> ";
-	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it += 2)
+	std::cout << "\t\t\t tmpl-> ";
+	for (std::vector<long>::iterator it = tmpl.begin(); it != tmpl.end(); it += 2)
 	{
 		std::cout << *it;
-		if (it + 1 != upper.end())
+		if (it + 1 != tmpl.end())
 			std::cout << '-' << *(it + 1) << ',';
 		else
 			break;
