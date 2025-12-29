@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/29 21:28:12 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/29 22:11:59 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -353,28 +353,32 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 	{
 		oldind = jacobsthal(jind - 1);
 		pos = jacobsthal(jind);
-		if (lower.size() < ((pos + 1) * gsize) - 1)
+		if (lower.size() <= ((pos - 1) * gsize) - 1)
+		{
+			std::cout << "lower.size() :" << lower.size() << "(pos) * gsize) - 1 :" << (pos) * gsize - 1<<  std::endl;
 			flag = 1;
-		std::cout << std::endl << "\t\t\t\t\t\tim not gonna start looking in :" << pos;
-		while (lower.size() < ((pos + 1) * gsize) - 1)
-		{
-			pos--;
-			if (pos < oldind)
-				break ;
 		}
-		std::cout << std::endl << "\t\t\t\t\t\tim gonna start looking in :" << pos << std::endl;
-		for (int ind = pos - 1; ind >= oldind - 1; ind--)
+		// if (lower.size() < ((pos + 1) * gsize) - 1)
+		std::cout << "prepos is :" << pos << std::endl;
+		while (lower.size() <= ((pos) * gsize) && pos > oldind)
+			pos--;
+		std::cout << "aftpos is :" << pos << std::endl;
+		std::cout << "gsize is :" << gsize << std::endl;
+		std::cout << "old is :" << oldind << std::endl;
+		std::cout << "size is :" << lower.size() << std::endl;
+		for (int ind = pos; ind > oldind; ind--)
 		{
-			std::cout << "jacob = " << ind << std::endl;
+			std::cout << std::endl << "jacob = " << ind << std::endl;
+			std::cout << "ind is :" << ind << std::endl;
 			if (copy.size() > ((ind + 1) * gsize) - 1)
 			{
 				std::cout << "find limit is :" << find(upper, oldind, copy[((pos + 1) * gsize) - 1]) + 1 << std::endl;
-				binaryInsert(upper, find(upper, oldind, copy[((pos + 1) * gsize) - 1]) + 1, lower, gsize, ind);
+				// binaryInsert(upper, find(upper, oldind, copy[((pos + 1) * gsize) - 1]) + 1, lower, gsize, ind);
 			}
 			else
 			{
 				std::cout << "size limit is :" << upper.size() << std::endl;
-				binaryInsert(upper, upper.size(), lower, gsize, ind);
+				// binaryInsert(upper, upper.size(), lower, gsize, ind);
 			}
 			std::cout << "\t\t\t newupper-> ";
 			for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
@@ -387,10 +391,7 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 					if (it + size != upper.end())
 						std::cout << '-' << *(it + size);
 					else
-					{
 						std::cout << ',';
-						break;
-					}
 				}
 			}
 			std::cout << std::endl;
@@ -407,12 +408,13 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 					else
 					{
 						std::cout << ',';
-						break;
 					}
 				}
 			}
-			std::cout << std::endl;
 		}
+			std::cout << std::endl;
+			std::cout << std::endl;
+		std::cout << "jacob = end"  << std::endl;
 		if (flag)
 			break ;
 		jind++;
