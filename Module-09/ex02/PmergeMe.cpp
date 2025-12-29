@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/29 22:25:39 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/29 22:50:22 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,7 +223,7 @@ void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower
 				pos = 0;
 				break;
 			}
-			pos -= resize + (resize == 0);
+			pos -= resize;
 			if (pos < 0)
 			{
 				pos = 0;
@@ -356,14 +356,8 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 		while (lower.size() <= ((pos) * gsize))
 		{
 			flag = 1;
-			std::cout << "lower.size() :" << lower.size() << "(pos) * gsize) - 1 :" << (pos) * gsize - 1<<  std::endl;
 			pos--;
 		}
-		// if (lower.size() <= ((pos - 1) * gsize) - 1)
-		// {
-			// flag = 1;
-		// }
-		// if (lower.size() < ((pos + 1) * gsize) - 1)
 		std::cout << "prepos is :" << pos << std::endl;
 		std::cout << "aftpos is :" << pos << std::endl;
 		std::cout << "gsize is :" << gsize << std::endl;
