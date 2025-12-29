@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/28 06:03:15 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/29 19:07:18 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,10 +158,10 @@ void addToTmpl(std::vector<long> &new_tmpl, std::vector<long> &tmpl, int gsize, 
 {
 	for (int i = ind - gsize; i < ind; i++)
 	{
-		std::cout << "pushing_back(" << i << ")" << " = "<< tmpl[i] << std::endl;
+		// std::cout << "pushing_back(" << i << ")" << " = "<< tmpl[i] << std::endl;
 		new_tmpl.push_back(tmpl[i]);
 	}
-	std::cout << std::endl << std::endl;
+	// std::cout << std::endl << std::endl;
 }
 
 void	separateElements(long unsigned gsize, std::vector<long> &tmpl, std::vector<long> &upper, std::vector<long> &lower)
@@ -173,15 +173,15 @@ void	separateElements(long unsigned gsize, std::vector<long> &tmpl, std::vector<
 	{
 		// indr = gsize * (ind + 1) - 1;
 		// indl = gsize * ind - 1;
-		std::cout << "lower" << std::endl;
+		// std::cout << "lower" << std::endl;
 		addToTmpl(lower, tmpl, gsize, gsize * ind);
 		// if (tmpl.size() <= gsize * (ind + 1) - 1)
 			// break;
-		std::cout << "upper" << std::endl;
+		// std::cout << "upper" << std::endl;
 		addToTmpl(upper, tmpl, gsize, gsize * (ind + 1));
 		if (tmpl.size() <= gsize * (ind + 3) - 1 && tmpl.size() > gsize * (ind + 2) - 1)
 		{
-			std::cout << "lower" << std::endl;
+			// std::cout << "lower" << std::endl;
 			addToTmpl(lower, tmpl, gsize, gsize * (ind + 2));
 		}
 	}
@@ -193,14 +193,93 @@ void	insertAt(std::vector<long> &upper, int uind, std::vector<long> &lower, int 
 	uind -= gsize;
 	lind -= gsize;
 
+	std::cout  << std::endl;
 	for (int ind = 0; ind < gsize; ind++)
-		upper.insert((uit + uind + ind), lower[uind + ind]);
+		upper.insert((uit + uind + ind), lower[lind + ind]);
+}
+
+void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower, int gsize, int ind)
+{
+	int	resize = upsize / gsize;
+	int	pos;
+
+	pos = resize / 2;
+	if (pos == 0)
+		pos = 2;
+	resize = resize / 2 + 1;
+	std::cout << "upsize/gsize :" << upsize << '/' << gsize << std::endl;
+	std::cout << "inserting element :" << lower[ind * gsize - 1] << std::endl;
+	while (upsize > pos * gsize && resize > 0)
+	{
+		std::cout << "pos :" << pos << std::endl;
+		if (upper[pos * gsize - 1] > lower[gsize * ind - 1])
+		{
+			std::cout << "(upper[" <<pos * gsize - 1 << "]" << "> lower[" << gsize * ind - 1<< "])" << std::endl;
+			std::cout << "(" << upper[pos * gsize - 1] << '>' << lower[gsize * ind - 1] << ")" << std::endl;
+			std::cout << "resize :" << resize << std::endl;
+			if (pos <= 0)
+			{
+				pos = 1;
+				break;
+			}
+			pos -= resize;
+			if (pos < 0)
+			{
+				pos = 1;
+			}
+			// std::cout << "pos :" << pos << std::endl;
+		}
+		else
+		{
+			std::cout << "(" << upper[pos * gsize - 1] << '<' << lower[gsize * ind - 1] << ")" << std::endl;
+			// std::cout << "pos :" << pos << std::endl;
+			std::cout << "resize :" << resize << std::endl;
+			if (pos > upsize / gsize)
+			{
+				pos = upsize / gsize;
+				break;
+			}
+			pos += resize;
+			if (pos > upsize / gsize)
+			{
+				pos = upsize / gsize;
+			}
+			// std::cout << "pos :" << pos << std::endl;
+		}
+		resize /= 2;
+		// if (pos <= gsize)
+			// break;
+	}
+	if (pos == 0)
+	{
+		// std::cout << "inserting : " << lower[ind * gsize - 1] << " in upper[" << 0 << ']' << std::endl;
+		insertAt(upper, gsize, lower, ind * gsize, gsize);
+	}
+	else if (upsize >= pos * gsize)
+	{
+		// std::cout << "inserting upsize is :" << upsize << " this ammout of elements :" << gsize << std::endl;
+		// std::cout << "inserting : " << lower[ind * gsize - 1] << " in upper[" << pos + 1 << ']' << std::endl;
+		insertAt(upper, (pos + 1) * gsize, lower, ind * gsize, gsize);
+	}
+	else
+	{
+		// std::cout << "inserting upsize is :" << upsize << " this ammout of elements :" << gsize << std::endl;
+		// std::cout << "inserting : " << lower[ind * gsize - 1] << "in " << '[' << upsize / gsize << ']' << std::endl;
+		insertAt(upper, upsize + gsize, lower, ind * gsize, gsize);
+	}
+}
+
+int	find(std::vector<long> &upper, int ind, int to_find)
+{
+	while (upper[ind] != to_find)
+		ind++;
+	return (ind);
 }
 
 void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 {
-	std::vector<long> upper;
-	std::vector<long> lower;
+	std::vector<long>	upper;
+	std::vector<long>	lower;
 
 	upper.reserve(tmpl.size());
 	separateElements(gsize, tmpl, upper, lower);
@@ -240,39 +319,101 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 			}
 		}
 	}
-	// std::vector<long>::iterator lit = upper.begin();
 	insertAt(upper, gsize, lower, gsize, gsize);
+	std::cout << "new upper-> ";
+	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
+	{
+		long unsigned	size = 0;
+		std::cout << '\t';
+		std::cout << *it;
+		while (++size < gsize)
+		{
+			if (it + size != upper.end())
+				std::cout << '-' << *(it + size);
+			else
+			{
+				std::cout << ',';
+				break;
+			}
+		}
+	}
+	std::cout << std::endl;
+	// debbuging starts here
+	std::vector<long>	copy = upper;
 	int	jind = 3;
-	int ind;
-	int pos;
-	int oldind;
+	int	oldind;
+	int	pos;
+	int	flag = 0;
 	while (1)
 	{
 		oldind = jacobsthal(jind - 1);
-		ind = jacobsthal(jind);
-		pos = oldind + 1;
-		while (lower.size() < gsize * ind - 1)
+		pos = jacobsthal(jind);
+		if (lower.size() <= gsize * pos - 1)
+			flag = 1;
+		std::cout << std::endl << "\t\t\t\t\t\tim not gonna start looking in :" << pos;
+		while (lower.size() <= gsize * pos - 1)
 		{
-			if (ind <= oldind)
+			pos--;
+			if (pos <= oldind)
 				break ;
-			ind--;
 		}
-		pos = oldind;
-		while (something)
+		std::cout << std::endl << "\t\t\t\t\t\tim gonna start looking in :" << pos << std::endl;
+		for (int ind = pos; ind > oldind; ind--)
 		{
-			oldind /= 2;
-			pos +-= oldind;
-			if ()
-				insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
-			jind++;
+			if (copy.size() > gsize * ind - 1)
+			{
+				std::cout << "find limit is :" << find(upper, oldind, copy[gsize * ind - 1]) + 1 << std::endl;
+				binaryInsert(upper, find(upper, oldind, copy[gsize * ind - 1]) + 1, lower, gsize, ind);
+			}
+			else
+			{
+				std::cout << "size limit is :" << upper.size() << std::endl;
+				binaryInsert(upper, upper.size(), lower, gsize, ind);
+			}
+			std::cout << "new upper-> ";
+			for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
+			{
+				long unsigned	size = 0;
+				std::cout << '\t';
+				std::cout << *it;
+				while (++size < gsize)
+				{
+					if (it + size != upper.end())
+						std::cout << '-' << *(it + size);
+					else
+					{
+						std::cout << ',';
+						break;
+					}
+				}
+			}
+			std::cout << std::endl;
+			std::cout << "old lower-> ";
+			for (std::vector<long>::iterator it = lower.begin(); it != lower.end(); it+=gsize)
+			{
+				long unsigned	size = 0;
+				std::cout << '\t';
+				std::cout << *it;
+				while (++size < gsize)
+				{
+					if (it + size != lower.end())
+						std::cout << '-' << *(it + size);
+					else
+					{
+						std::cout << ',';
+						break;
+					}
+				}
+			}
+			std::cout << std::endl;
 		}
-		
+		if (flag)
+			break ;
+		jind++;
 	}
-	
-	// for (ind = 2; ; ind++)
-	// {
-		// gsize * ind - 1;
-	// }
+	for(size_t	ind = upper.size(); ind < tmpl.size(); ind++)
+		upper.push_back(tmpl[ind]);
+	tmpl = upper;
 
 	std::cout << std::endl;
 	std::cout << std::endl;

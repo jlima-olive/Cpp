@@ -4,7 +4,8 @@ OBJ_FILES =	${SRC_FILES:.cpp=.o}
 
 CXX =		c++
 
-CXXFLAGS =	-Wextra -Werror -Wall -std=c++98 -I.
+CXXFLAGS =	 -I.
+# -Wextra -Werror -Wall -std=c++98
 
 NAME =		PmergeMe
 
