@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/29 22:50:22 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:35:59 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,13 +203,13 @@ int	tmplfunc(std::vector<long> &tmpl, int gsize, int ind)
 
 void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower, int gsize, int ind)
 {
-	int	resize = upsize / gsize;
+	int	resize = (upsize - 1) / gsize;
 	int	pos;
 
 	pos = resize / 2;
-	resize = resize / 2;
+	resize = resize / 2 + 1;
 	std::cout << "upsize/gsize :" << upsize << '/' << gsize << std::endl;
-	while (upsize >= ((pos + 1) * gsize) - 1 && resize >= 0)
+	while (resize >= 0)
 	{
 		std::cout << "pos :" << pos << std::endl;
 		if (tmplfunc(upper, gsize, pos) > tmplfunc(lower, gsize, ind))
@@ -249,7 +249,10 @@ void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower
 			// std::cout << "pos :" << pos << std::endl;
 		}
 		if (resize == 0)
+		{
+			std::cout << "breaking" << std::endl;
 			break ;
+		}
 		resize /= 2;
 		// if (pos <= gsize)
 			// break;
@@ -381,7 +384,7 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 			for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
 			{
 				long unsigned	size = 0;
-				std::cout << '\t';
+				std::cout << ' ';
 				std::cout << *it;
 				while (++size < gsize)
 				{
@@ -396,7 +399,7 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 			for (std::vector<long>::iterator it = lower.begin(); it != lower.end(); it+=gsize)
 			{
 				long unsigned	size = 0;
-				std::cout << '\t';
+				std::cout << ' ';
 				std::cout << *it;
 				while (++size < gsize)
 				{
