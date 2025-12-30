@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/30 19:35:59 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/30 23:28:14 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void	insertAt(std::vector<long> &upper, int uind, std::vector<long> &lower, int 
 {
 	std::vector<long>::iterator uit = upper.begin();
 
-	std::cout  << std::endl;
+	std::cout << "upper[" << uind / gsize <<"] = lower["<< lind / gsize <<"] (" << lower[lind + gsize - 1] << ")" << std::endl;
 	for (int ind = 0; ind < gsize; ind++)
 		upper.insert((uit + uind + ind), lower[lind + ind]);
 }
@@ -201,16 +201,18 @@ int	tmplfunc(std::vector<long> &tmpl, int gsize, int ind)
 	return (tmpl[((ind + 1) * gsize) - 1]);
 }
 
-void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower, int gsize, int ind)
+void	binary/* Insert */(std::vector<long> &upper, int upsize, std::vector<long> &lower, int gsize, int ind)
 {
 	int	resize = (upsize - 1) / gsize;
 	int	pos;
 
 	pos = resize / 2;
-	resize = resize / 2 + 1;
+	resize = resize / 2;
 	std::cout << "upsize/gsize :" << upsize << '/' << gsize << std::endl;
 	while (resize >= 0)
 	{
+		if (((pos + 1) * gsize) - 1 > upsize)
+			pos = upsize / gsize;
 		std::cout << "pos :" << pos << std::endl;
 		if (tmplfunc(upper, gsize, pos) > tmplfunc(lower, gsize, ind))
 		{
@@ -219,61 +221,80 @@ void	binaryInsert(std::vector<long> &upper, int upsize, std::vector<long> &lower
 			std::cout << "resize :" << resize << std::endl << std::endl;
 			if (pos <= 0)
 			{
-				std::cout << "3" << std::endl;
 				pos = 0;
 				break;
 			}
 			pos -= resize;
 			if (pos < 0)
-			{
 				pos = 0;
-			}
-			// std::cout << "pos :" << pos << std::endl;
 		}
 		else
 		{
 			std::cout << "(upper[" << ((pos + 1) * gsize) - 1  << "]" << "< lower[" << ((ind + 1) * gsize) - 1  << "])" << std::endl;
 			std::cout << "(" << tmplfunc(upper, gsize, pos) << '<' << tmplfunc(lower, gsize, ind) << ")" << std::endl;
 			std::cout << "resize :" << resize << std::endl << std::endl;
-			if (pos >= upsize / gsize)
+			if (pos >= upsize / gsize - 1)
 			{
-				std::cout << "2" << std::endl;
-				pos = upsize / gsize;
+				pos = upsize / gsize - 1;
 				break;
 			}
 			pos += resize + (resize == 0);
-			if (pos > upsize / gsize)
-			{
-				pos = upsize / gsize;
-			}
-			// std::cout << "pos :" << pos << std::endl;
+			if (pos > upsize / gsize - 1)
+				pos = upsize / gsize - 1;
 		}
 		if (resize == 0)
-		{
-			std::cout << "breaking" << std::endl;
 			break ;
-		}
+		if (resize % 2 && resize != 1)
+			resize++;
 		resize /= 2;
-		// if (pos <= gsize)
-			// break;
 	}
 	std::cout << (upsize >= ((pos + 1) * gsize) - 1)  << "&&"  << (resize >= 0) << std::endl;
 	if (pos == 0)
-	{
-		// std::cout << "inserting : " << lower[ind * gsize - 1] << " in upper[" << 0 << ']' << std::endl;
 		insertAt(upper, 0, lower, ind * gsize, gsize);
-	}
 	else if (upsize >= pos * gsize)
-	{
-		// std::cout << "inserting upsize is :" << upsize << " this ammout of elements :" << gsize << std::endl;
-		// std::cout << "inserting : " << lower[ind * gsize - 1] << " in upper[" << pos + 1 << ']' << std::endl;
 		insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
-	}
 	else
-	{
-		// std::cout << "inserting upsize is :" << upsize << " this ammout of elements :" << gsize << std::endl;
-		// std::cout << "inserting : " << lower[ind * gsize - 1] << "in " << '[' << upsize / gsize << ']' << std::endl;
 		insertAt(upper, upsize, lower, ind * gsize, gsize);
+}
+
+int	elev(int nb, int elev)
+{
+	int	number = nb;
+
+	while (--elev > 0)
+		number *= nb;
+	return (number);
+}
+
+void	binaryInsert(std::vector<long> &upper, int pos, int upsize, std::vector<long> &lower, int gsize, int ind, int resize)
+{
+	if (pos < 0)
+		pos = 0;
+	if (pos > upsize)
+		pos = upsize;
+	if (resize == 0)
+		return (insertAt(upper, pos * gsize, lower, ind * gsize, gsize));
+	std::cout << "upsize is= " << upsize << std::endl;
+	std::cout << "value is= " << tmplfunc(lower, gsize, ind) << std::endl;
+	std::cout << "resize is= " << resize << std::endl;
+	if (tmplfunc(lower, gsize, ind) > tmplfunc(upper, gsize, pos))
+	{
+		std::cout << "(" << (ind + 1) - 1 << ") > (" << (pos + 1) - 1 << ")" << std::endl;
+		std::cout << tmplfunc(lower, gsize, ind) << ">" << tmplfunc(upper, gsize, pos) << std::endl;
+		if (pos == upsize)
+			return insertAt(upper, (pos + 1) * gsize, lower, ind * gsize, gsize);
+		return binaryInsert(upper, pos + resize + (resize != 1 && resize % 2 != 0), upsize, lower, gsize, ind, resize / 2);
+	}
+	if (tmplfunc(lower, gsize, ind) < tmplfunc(upper, gsize, pos))
+	{
+		std::cout << "pos" << pos << std::endl;
+		std::cout << "(" << (ind + 1) - 1 << ") < (" << (pos + 1) - 1 << ")" << std::endl;
+		std::cout << tmplfunc(lower, gsize, ind) << "<" << tmplfunc(upper, gsize, pos) << std::endl;
+		if (pos == 0)
+			return insertAt(upper, 0, lower, ind * gsize, gsize);
+		if (resize == 1)
+			return insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
+		return binaryInsert(upper, pos - resize, upsize, lower, gsize, ind, resize / 2);
 	}
 }
 
@@ -327,6 +348,7 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 			}
 		}
 	}
+	std::vector<long>	copy = upper;
 	insertAt(upper, 0, lower, 0, gsize);
 	std::cout << "\t\t\t newupper-> ";
 	for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
@@ -347,7 +369,6 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 	}
 	std::cout << std::endl;
 	// debbuging starts here
-	std::vector<long>	copy = upper;
 	int	jind = 3;
 	int	oldind;
 	int	pos;
@@ -361,24 +382,20 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 			flag = 1;
 			pos--;
 		}
-		std::cout << "prepos is :" << pos << std::endl;
-		std::cout << "aftpos is :" << pos << std::endl;
-		std::cout << "gsize is :" << gsize << std::endl;
-		std::cout << "old is :" << oldind << std::endl;
-		std::cout << "size is :" << lower.size() << std::endl;
 		for (int ind = pos; ind >= oldind; ind--)
 		{
 			std::cout << std::endl << "jacob = " << ind << std::endl;
 			std::cout << "ind is :" << ind << std::endl;
 			if (copy.size() > ((ind + 1) * gsize) - 1)
 			{
-				std::cout << "find limit is :" << find(upper, oldind, copy[((pos + 1) * gsize) - 1]) + 1 << std::endl;
-				binaryInsert(upper, find(upper, oldind, copy[((pos + 1) * gsize) - 1]) + 1, lower, gsize, ind);
+				int nb = find(upper, oldind, tmplfunc(copy, gsize, ind)) / gsize;
+				std::cout << "finding ->" << tmplfunc(copy, gsize, ind) <<" in ind:" << nb << std::endl << std::endl;
+				binaryInsert(upper, (nb - 1) / 2, nb - 1, lower, gsize, ind, nb / 2);
 			}
 			else
 			{
-				std::cout << "size limit is :" << upper.size() << std::endl;
-				binaryInsert(upper, upper.size(), lower, gsize, ind);
+				std::cout << "finding ->" << (upper.size() / gsize - 1) / 2 << " in max is :" << (upper.size() / gsize) - 1 << std::endl << std::endl;
+				binaryInsert(upper, (upper.size() / gsize - 1) / 2, upper.size() / gsize - 1, lower, gsize, ind, (upper.size() / gsize) / 2);
 			}
 			std::cout << "\t\t\t newupper-> ";
 			for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
