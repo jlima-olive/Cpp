@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/31 00:18:32 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/31 00:43:06 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -494,7 +494,7 @@ void	FordJohnson(unsigned long gsize, std::vector<long> &tmpl)
 		FordJohnson((gsize * 2), tmpl);
 		std::cout << std::endl << "size = " << gsize << std::endl;
 	}
-	if (tmpl.size() > (gsize * 2) * 2)
+	// if (tmpl.size() >= (gsize * 2) * 2)
 		organizeGroups(gsize, tmpl);
 
 	// std::cout << "\n\n\n\n\n";
