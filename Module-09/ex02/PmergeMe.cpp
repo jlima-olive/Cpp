@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/30 23:28:14 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/31 00:16:32 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void	insertAt(std::vector<long> &upper, int uind, std::vector<long> &lower, int 
 {
 	std::vector<long>::iterator uit = upper.begin();
 
-	std::cout << "upper[" << uind / gsize <<"] = lower["<< lind / gsize <<"] (" << lower[lind + gsize - 1] << ")" << std::endl;
+	std::cout << std::endl << "upper[" << uind / gsize <<"] = lower["<< lind / gsize <<"] (" << lower[lind + gsize - 1] << ")" << std::endl;
 	for (int ind = 0; ind < gsize; ind++)
 		upper.insert((uit + uind + ind), lower[lind + ind]);
 }
@@ -283,7 +283,7 @@ void	binaryInsert(std::vector<long> &upper, int pos, int upsize, std::vector<lon
 		std::cout << tmplfunc(lower, gsize, ind) << ">" << tmplfunc(upper, gsize, pos) << std::endl;
 		if (pos == upsize)
 			return insertAt(upper, (pos + 1) * gsize, lower, ind * gsize, gsize);
-		return binaryInsert(upper, pos + resize + (resize != 1 && resize % 2 != 0), upsize, lower, gsize, ind, resize / 2);
+		return binaryInsert(upper, pos + resize / 2 + (resize / 2 == 0), upsize, lower, gsize, ind, resize / 2);
 	}
 	if (tmplfunc(lower, gsize, ind) < tmplfunc(upper, gsize, pos))
 	{
@@ -294,7 +294,7 @@ void	binaryInsert(std::vector<long> &upper, int pos, int upsize, std::vector<lon
 			return insertAt(upper, 0, lower, ind * gsize, gsize);
 		if (resize == 1)
 			return insertAt(upper, pos * gsize, lower, ind * gsize, gsize);
-		return binaryInsert(upper, pos - resize, upsize, lower, gsize, ind, resize / 2);
+		return binaryInsert(upper, pos - resize / 2, upsize, lower, gsize, ind, resize / 2);
 	}
 }
 
@@ -390,12 +390,12 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 			{
 				int nb = find(upper, oldind, tmplfunc(copy, gsize, ind)) / gsize;
 				std::cout << "finding ->" << tmplfunc(copy, gsize, ind) <<" in ind:" << nb << std::endl << std::endl;
-				binaryInsert(upper, (nb - 1) / 2, nb - 1, lower, gsize, ind, nb / 2);
+				binaryInsert(upper, (nb - 1) / 2, nb - 1, lower, gsize, ind, elev(2, jind - 2));
 			}
 			else
 			{
 				std::cout << "finding ->" << (upper.size() / gsize - 1) / 2 << " in max is :" << (upper.size() / gsize) - 1 << std::endl << std::endl;
-				binaryInsert(upper, (upper.size() / gsize - 1) / 2, upper.size() / gsize - 1, lower, gsize, ind, (upper.size() / gsize) / 2);
+				binaryInsert(upper, (upper.size() / gsize - 1) / 2, upper.size() / gsize - 1, lower, gsize, ind, elev(2, jind - 2));
 			}
 			std::cout << "\t\t\t newupper-> ";
 			for (std::vector<long>::iterator it = upper.begin(); it != upper.end(); it+=gsize)
