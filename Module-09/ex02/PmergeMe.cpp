@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/31 00:44:28 by jlima-so         ###   ########.fr       */
+/*   Updated: 2025/12/31 00:47:08 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -475,11 +475,9 @@ void	FordJohnson(unsigned long gsize, std::vector<long> &tmpl)
 		std::cout << std::endl;
 	}
 	std::cout << std::endl << "size is " << gsize << std::endl;
-
 	for(int ind = 1; tmpl.size() > gsize * (ind + 1) - 1; ind += 2)
 		if (tmpl[gsize * ind - 1] > tmpl[gsize * (ind + 1) - 1])
 			tmplSwap(tmpl, gsize, gsize * ind, gsize * (ind + 1));
-	// std::cout << std::endl << "size is " << gsize << std::endl;
 	std::cout << std::endl;
 	for (std::vector<long>::iterator it = tmpl.begin(); it != tmpl.end(); it += 2)
 	{
@@ -495,10 +493,6 @@ void	FordJohnson(unsigned long gsize, std::vector<long> &tmpl)
 		std::cout << std::endl << "size = " << gsize << std::endl;
 	}
 	organizeGroups(gsize, tmpl);
-
-	// std::cout << "\n\n\n\n\n";
-	// for (std::vector<long>::iterator it; it != tmpl.end() && it + 1 != tmpl.end(); it += 2)
-		// std::cout << *it << '-' << *(it + 1) << ',';
 }
 
 PmergeMe::PmergeMe(char **mat)
