@@ -17,6 +17,11 @@ int AForm::getGrade() const
 	return (sign_grade);
 }
 
+int AForm::getExeGrade() const
+{
+	return (exec_grade);
+}
+
 const std::string AForm::getTarget() const
 {
 	return (target);
@@ -44,19 +49,14 @@ void AForm::beSigned(Bureaucrat &obj)
 
 void	AForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() > getGrade() || sign == false)
+	if (executor.getGrade() > getExeGrade() || sign == false)
 	{
 		std::cout << executor.getName() << " couldn't execute " << getName() << std::endl;
-		if (sign == true && executor.getGrade() > getGrade())
+		if (sign == true && executor.getGrade() > getExeGrade())
 			throw (Bureaucrat::GradeTooLowException());
 	}
 	else if (execute_func())
 		std::cout << executor.getName() << " executed " << getName() << std::endl;
-}
-
-int AForm::execute_func(void) const
-{
-	return (1);
 }
 
 AForm::AForm() :

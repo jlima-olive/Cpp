@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:32:18 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 21:25:25 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:55:24 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ int main(void)
 		rbf->execute(b1);
 		prf->execute(b1);
 		
-		// shf->beSigned(b2);
-		// rbf->beSigned(b2);
-		// prf->beSigned(b2);	//exception
-		// shf->execute(b2);
-		// rbf->execute(b2);
-		// prf->execute(b2);	//exception
+		// b2.signForm(*shf);
+		// b2.signForm(*rbf);
+		// b2.signForm(*prf); //exception
+// 
+		// b2.executeForm(*shf);
+		// b2.executeForm(*rbf);
+		// b2.executeForm(*prf); //exception
 
 		// shf->beSigned(b3);
 		// rbf->beSigned(b3);	//exception
@@ -52,6 +53,8 @@ int main(void)
 		// shf->execute(b3);
 		// rbf->execute(b3);	//exception
 		// prf->execute(b3);	//exception
+
+		// change execute to beexecuted
 	}
 	catch (std::exception &e)
 	{

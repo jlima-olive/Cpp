@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:32:18 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 18:53:32 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:19:25 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int main(void)
 		f1.beSigned(b3);
 		f2.beSigned(b3); //exception
 		f3.beSigned(b3); //exception
+
+		// change function to signForm
 	}
 	catch (std::exception &e)
 	{

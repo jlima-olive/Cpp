@@ -15,6 +15,7 @@ ${NAME}: $(OBJ_FILES) Makefile
 	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
 clean:
+	rm -fr *_shrubbery
 	rm -fr $(OBJ_FILES)
 
 fclean: clean

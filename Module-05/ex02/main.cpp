@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:32:18 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 21:16:47 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:49:12 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,23 @@ int main(void)
 		Bureaucrat b2("bureau2", 72);
 		Bureaucrat b3("bureau3", 145);
 		
-		// shf.beSigned(b1);
-		// rbf.beSigned(b1);
-		// prf.beSigned(b1);
+		shf.beSigned(b1);
+		rbf.beSigned(b1);
+		prf.beSigned(b1);
 
-		// shf.execute(b1);
-		// rbf.execute(b1);
-		// prf.execute(b1);
+		shf.execute(b1);
+		rbf.execute(b1);
+		prf.execute(b1);
 
 
 		
-		// shf.beSigned(b2);
-		// rbf.beSigned(b2);
-		// prf.beSigned(b2); //exception
+		b2.signForm(shf);
+		b2.signForm(rbf);
+		b2.signForm(prf); //exception
 
-		// shf.execute(b2);
-		// rbf.execute(b2);
-		// prf.execute(b2); //exception
+		b2.executeForm(shf);
+		b2.executeForm(rbf);
+		b2.executeForm(prf); //exception
 
 
 		

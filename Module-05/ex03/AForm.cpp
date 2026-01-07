@@ -17,6 +17,11 @@ int AForm::getGrade() const
 	return (sign_grade);
 }
 
+int AForm::getExeGrade() const
+{
+	return (exec_grade);
+}
+
 const std::string AForm::getTarget() const
 {
 	return (target);
@@ -52,11 +57,6 @@ void	AForm::execute(Bureaucrat const & executor) const
 	}
 	else if (execute_func())
 		std::cout << executor.getName() << " executed " << getName() << std::endl;
-}
-
-int AForm::execute_func(void) const
-{
-	return (1);
 }
 
 AForm::AForm() :
