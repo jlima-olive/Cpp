@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 15:33:30 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 21:40:56 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:37:49 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int main()
 {
-	std::string str1 = " 42";
+	std::string str1 = " 0f";
 	std::string str2 = "  f42.";
 	std::string str3 = "  42.1";
 	std::string str4 = "  42.f";
 	std::string str5 = " 42.0f";
-	std::string str6 = "nan";
-	std::string str7 = "nanf";
+	std::string str6 = "  nan";
+	std::string str7 = "  nanf";
 	std::string str8 = "         -67.67";
 	std::string str9 = "inf";
 	std::string str10 = "-inf";
