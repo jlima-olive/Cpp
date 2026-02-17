@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:34:44 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 23:53:09 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:10:35 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ Base * Base::generate(void)
 
 	gettimeofday(&var, NULL);
 	usleep(var.tv_usec % 10);
-	if (var.tv_usec % 9 + 1 > 6)
+	if (var.tv_usec % 3 == 2)
 		return new A;
-	else if (var.tv_usec % 9 + 1 > 3)
+	else if (var.tv_usec % 3 >= 1)
 		return new B;
 	else
 		return new C;

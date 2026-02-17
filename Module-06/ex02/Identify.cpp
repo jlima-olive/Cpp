@@ -6,14 +6,14 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:48:25 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 18:11:29 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:26:32 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <A.hpp>
 #include <B.hpp>
-#include <Base.hpp>
 #include <C.hpp>
+#include <Base.hpp>
 
 void identify(Base* p)
 {
@@ -31,6 +31,7 @@ void identify(Base& p)
 	{
 		dynamic_cast<A&>(p);
 		std::cout << "The class is A" << std::endl;
+		return;
 	}
 	catch (...)
 	{}
@@ -38,6 +39,7 @@ void identify(Base& p)
 	{
 		dynamic_cast<B&>(p);
 		std::cout << "The class is B" << std::endl;
+		return;
 	}
 	catch (...)
 	{}
@@ -45,6 +47,7 @@ void identify(Base& p)
 	{
 		dynamic_cast<C&>(p);
 		std::cout << "The class is C" << std::endl;
+		return;
 	}
 	catch (...)
 	{}
