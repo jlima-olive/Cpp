@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:20:45 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 18:35:17 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:18:43 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,13 @@ public:
 	void	signForm(Form &obj);
 	class GradeTooHighException : public std::exception
 	{
-		virtual const char* what() const throw();
+		public:
+			virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-		virtual const char* what() const throw();
+		public:
+			virtual const char* what() const throw();
 	};
 };
 

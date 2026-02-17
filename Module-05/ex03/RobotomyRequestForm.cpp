@@ -47,12 +47,12 @@ int RobotomyRequestForm::execute_func() const
 
 	gettimeofday(&var, NULL);
     srand(var.tv_usec); 
-	if (rand() % 10 + 1 > 5)
+	std::cout << "* drilling noises *" << std::endl;
+	if (rand() % 2)
 	{
 		std::cout << getTarget() << " could not be robotomized" << std::endl;
-		return (0);
+		return (1);
 	}
-	std::cout << "* drilling noises *" << std::endl
-			  << getTarget() << " was robotomized" << std::endl;
+	std::cout << getTarget() << " was robotomized" << std::endl;
 	return (1);
 }

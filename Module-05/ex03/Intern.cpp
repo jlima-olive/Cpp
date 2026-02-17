@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:00:24 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 21:26:52 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:54:41 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,29 @@ Intern::~Intern()
 
 AForm *Intern::makeForm(const std::string &form, const std::string &target) const
 {
-	if (form == "PresidentialPardonForm")
+	std::string str[3] =  { "PresidentialPardonForm", "ShrubberyCreationForm", "RobotomyRequestForm" };
+	int	ind = 0;
+	
+	while (ind < 3 && form != str[ind])
+		ind++;
+	switch (ind)
 	{
-		std::cout << "Intern created a PresidentialPardonForm" << std::endl;
-		return (new PresidentialPardonForm(target));
+		case 0:
+			std::cout << "Intern created a PresidentialPardonForm" << std::endl;
+			return (new PresidentialPardonForm(target));
+		case 1:
+			std::cout << "Intern created a ShrubberyCreationForm" << std::endl;
+			return (new ShrubberyCreationForm(target));
+		case 2:
+			std::cout << "Intern created a RobotomyRequestForm" << std::endl;
+			return (new RobotomyRequestForm(target));
+		default :
+			std::cout << "The Intern couldnt find that specific form, maybe we should pay him even less??" << std::endl;
+			throw (randomException());
 	}
-	if (form == "ShrubberyCreationForm")
-	{
-		std::cout << "Intern created a ShrubberyCreationForm" << std::endl;
-		return (new ShrubberyCreationForm(target));
-	}
-	if (form == "RobotomyRequestForm")
-	{
-		std::cout << "Intern created a RobotomyRequestForm" << std::endl;
-		return (new RobotomyRequestForm(target));
-	}
-	std::cout << "The Intern couldnt find that specific form, maybe we should pay him even less??" << std::endl;
-	return (NULL);
 }
 
+const char	*Intern::randomException::what() const throw()
+{
+	return ("this is a Random Exception");
+}

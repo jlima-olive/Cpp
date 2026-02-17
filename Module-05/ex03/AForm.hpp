@@ -28,6 +28,7 @@ protected:
 public:
 	void	execute(Bureaucrat const & executor) const;
 	int		getGrade() const;
+	int		getExeGrade() const;
 	const std::string getName() const;
 	const std::string getTarget() const;
 	void	beSigned(Bureaucrat &obj);

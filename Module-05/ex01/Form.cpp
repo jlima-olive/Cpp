@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:48:50 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 18:58:03 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:20:08 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ exec_grade(exec_grade * (exec_grade < 151 && exec_grade > 0) + 75 * !(exec_grade
 	handle_exception(sign_grade);
 	handle_exception(exec_grade);
 	std::cout << "Form argument constructor called" << std::endl;	
-	handle_exception(sign_grade);
 }
 
 Form::Form(Form &obj) :

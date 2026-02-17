@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:28:55 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/11 18:54:00 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:54:05 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat &obj)
 {
-	return (*(new Bureaucrat(obj.name, obj.grade)));
+	handle_exception(obj.getGrade());
+	grade = obj.getGrade();
+	std::cout << "Bureaucrat copy asignment operator called" << std::endl;	
+	return (*this);
 }
 
 const std::string &Bureaucrat::getName()
