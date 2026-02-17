@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:08:09 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/26 17:16:24 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:54:48 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ int main(void)
 {
 	uintptr_t	var;
 	Data		*data;
+	Data		var1;
 
-	data = (Data *)malloc(sizeof(Data *));
-	
+	data = &var1;
 	data->var = 123456789;
 
 	var = Serializer::serialize(data);
 	data = Serializer::deserialize (var);
 
 	std::cout << "data->var=" << data->var << std::endl;
-	free(data);
 }
