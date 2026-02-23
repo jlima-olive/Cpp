@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:12:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 19:28:08 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/23 14:54:10 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ public:
 	array(new T[n]),
 	len(n)
 	{
+		for (size_t i = 0; i < len; i++)
+			array[i] = 0;
 		std::cout << "Array argument constructor called" << std::endl;
 	}
 	Array(Array &obj) :
