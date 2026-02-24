@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:12:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2026/02/23 14:54:10 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:15:50 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,12 @@ public:
 		std::cout << "Array destructor called" << std::endl;
 	}
 	T	&operator[](unsigned int n)
+	{
+		if (n >= len)
+			throw (out_of_bounds());
+		return (array[n]);
+	}
+	T const	operator[](unsigned int n) const
 	{
 		if (n >= len)
 			throw (out_of_bounds());
