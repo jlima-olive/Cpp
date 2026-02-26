@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 20:18:52 by jlima-so          #+#    #+#             */
-/*   Updated: 2026/02/26 12:04:02 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/26 12:05:03 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(void)
 {
 	Array<std::string>	array(10);
 	std::string str = "hello world";
+	array[9] = str;
 	Array<std::string>	const carray(array);
 
 	std::cout << array[9];
