@@ -6,7 +6,7 @@
 /*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:12:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2026/02/26 11:56:02 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/26 12:03:18 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ public:
 	array(new T[n]),
 	len(n)
 	{
+		for (size_t i = 0; i < len; i++)
+			array[i] = 0;
 		std::cout << "Array argument constructor called" << std::endl;
 	}
 	Array(Array &obj) :
