@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:12:51 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/11/27 19:28:08 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:56:02 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ public:
 	{
 		virtual const char *what() const throw()
 		{
-			return ("Couldnt access requested indice");
+			return ("Couldnt access requested index");
 		}
 	};
 	~Array()
@@ -67,6 +67,12 @@ public:
 		std::cout << "Array destructor called" << std::endl;
 	}
 	T	&operator[](unsigned int n)
+	{
+		if (n >= len)
+			throw (out_of_bounds());
+		return (array[n]);
+	}
+	T const	operator[](unsigned int n) const
 	{
 		if (n >= len)
 			throw (out_of_bounds());
