@@ -495,6 +495,9 @@ void	FordJohnson(unsigned long gsize, std::vector<long> &tmpl)
 	organizeGroups(gsize, tmpl);
 }
 
+# include <algorithm>
+
+
 PmergeMe::PmergeMe(char **mat)
 {
 	std::cout << "PmergeMe argument constructor called" << std::endl;
@@ -518,6 +521,11 @@ PmergeMe::PmergeMe(char **mat)
 	// startTimer();
 	std::vector <long> tmpl = streamToTemplate(s); 
 	FordJohnson(1, tmpl);
+	if (std::is_sorted(tmpl.begin(), tmpl.end()))
+		std::cout << "is sorted" << std::endl;
+	else
+		std::cout << "its not" << std::endl;
+
 	// endTimer();
 
 	// startTimer();
