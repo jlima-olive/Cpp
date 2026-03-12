@@ -70,24 +70,24 @@ unsigned int Span::shortestSpan()
 {
 	if (size == 0 || size == 1)
 		throw(cant_find_span());
+	int					small;
+	std::vector<int>	vec(array);
 
-	unsigned int	ind1 = 0;
-	unsigned int	ind2;
-	unsigned int	small = (unsigned)__INT_MAX__ * 2;
-	long			temp;
-
-	while (ind1 < size)
+	std::sort(vec.begin(), vec.end());
 	{
-		ind2 = ind1;
-		while (++ind2 < size)
+		std::vector<int>::iterator sit = vec.begin() + 1;
+		std::vector<int>::iterator it = sit + 1;
+
+		small = *it - *sit;
+		it++;
+		sit++;
+		while (it != vec.end())
 		{
-			temp = array[ind1] - array[ind2];
-			temp = temp * (temp > 0) - temp * (temp < 0);
-			small = temp * (temp < small) + small * (small <= temp);
-			// if (temp < small)
-			// small = temp;
+			if (*it - *sit < small)
+				small = *it - *sit;
+			it++;
+			sit++;
 		}
-		ind1++;
 	}
 	return (small);
 }
@@ -96,26 +96,7 @@ unsigned int Span::longestSpan()
 {
 	if (size == 0 || size == 1)
 		throw(cant_find_span());
-	
-	unsigned int	ind1 = 0;
-	unsigned int	ind2;
-	unsigned int	big = 0;
-	long			temp;
-
-	while (ind1 < size)
-	{
-		ind2 = ind1;
-		while (++ind2 < size)
-		{
-			temp = array[ind1] - array[ind2];
-			temp = temp * (temp > 0) - temp * (temp < 0);
-			big = temp * (temp > big) + big * (big >= temp);
-			// if (temp > big)
-			// big = temp;
-		}
-		ind1++;
-	}
-	return (big);
+	return (*(std::max_element(array.begin(), array.end())) - *(std::min_element(array.begin(), array.end())));
 }
 
 void Span::insert(std::vector<int>::iterator &it, unsigned int n)
