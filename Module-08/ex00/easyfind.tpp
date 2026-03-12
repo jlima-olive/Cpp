@@ -26,15 +26,9 @@ const char *NoFound::what() const throw()
 template <typename T>
 void easyfind(T templ, int n)
 {
-	while (!templ.empty())
-	{
-		if (templ.top() == n)
-		{
-			std::cout << "I just found something, and its: " << templ.top() << std::endl;
+	for (typename T::iterator it = templ.begin(); it != templ.end(); it++)
+		if (*it == n)
 			return ;
-		}
-		templ.pop();
-	}
 	throw (NoFound());
 }
 

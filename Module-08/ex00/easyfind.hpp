@@ -13,7 +13,7 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-# include <stack>
+# include <list>
 # include <queue>
 # include <iostream>
 #include <easyfind.tpp>

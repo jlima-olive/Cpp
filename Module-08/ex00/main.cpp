@@ -14,14 +14,53 @@
 
 int main()
 {
-	std::stack<int> stack;
+	std::vector<int> var;
 
 	for (int ind = 0; ind < 51; ind++)
-		stack.push(ind);
-	easyfind(stack, 50);
+		var.push_back(ind);
 	try
 	{
-		easyfind(stack, 51);
+		std::cout << "try one\n";
+		easyfind(var, 50);
+		std::cout << "try two\n";
+		easyfind(var, 51);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
+
+
+	std::deque<int> var1;
+
+	for (int ind = 0; ind < 51; ind++)
+		var.push_back(ind);
+	try
+	{
+		std::cout << "try one\n";
+		easyfind(var, 50);
+		std::cout << "try two\n";
+		easyfind(var, 51);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
+
+	std::list<int> var2;
+
+	for (int ind = 0; ind < 51; ind++)
+		var.push_back(ind);
+	try
+	{
+		std::cout << "try one\n";
+		easyfind(var, 50);
+		std::cout << "try two\n";
+		easyfind(var, 51);
 	}
 	catch (std::exception &e)
 	{
