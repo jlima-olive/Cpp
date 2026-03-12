@@ -16,7 +16,8 @@
 # include <stack>
 # include <queue>
 # include <iostream>
-#include <easyfind.hpp>
+# include <easyfind.hpp>
+# include <algorithm>
 
 const char *NoFound::what() const throw()
 {
@@ -26,10 +27,11 @@ const char *NoFound::what() const throw()
 template <typename T>
 void easyfind(T templ, int n)
 {
-	for (typename T::iterator it = templ.begin(); it != templ.end(); it++)
-		if (*it == n)
-			return ;
-	throw (NoFound());
+	typename T::iterator it;
+
+	it = std::find(templ.begin(), templ.end(), n);
+	if (it == templ.end())
+		throw (NoFound());
 }
 
 #endif
