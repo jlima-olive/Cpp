@@ -141,10 +141,12 @@ void	separateElements(long unsigned gsize, T &tmpl, T &upper, T &lower)
 template <typename T>
 void	insertAt(T &upper, int uind, T &lower, int lind, int gsize)
 {
-	typename T::iterator uit = upper.begin();
 
 	for (int ind = 0; ind < gsize; ind++)
+	{
+		typename T::iterator uit = upper.begin();
 		upper.insert((uit + uind + ind), lower[lind + ind]);
+	}
 }
 
 template <typename T>
