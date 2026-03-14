@@ -6,8 +6,6 @@ int main (int ac, char **av)
 		return (1);
 	try
 	{
-		std::cout << jacobsthal(8) << std::endl;
-		// exit(0);
 		PmergeMe (av + 1);
 	}
 	catch (std::exception &e)

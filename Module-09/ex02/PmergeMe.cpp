@@ -40,25 +40,6 @@ int	onlyDigits(std::string str)
 	return (1);
 }
 
-// std::stringstream	PmergeMe::formatMat(char **mat)
-// {
-// 	std::stringstream	s;
-// 	std::stringstream	temp;
-// 	std::string			str;
-// 	int					value;
-
-// 	for(int ind = 0; mat[ind] != NULL; ind++)
-// 	{
-// 		str = mat[ind];
-// 		if (onlyDigits(str) == 0 || str.find(' ') != str.npos)
-// 			throw(Error());
-// 		temp << str;
-// 		s << str;
-// 		temp >> value;
-// 	}
-// 	return (s);
-// }
-
 void findRepetition(char **mat)
 {
 	for(int ind1 = 0; mat[ind1] != NULL; ind1++)
@@ -99,9 +80,10 @@ std::deque<long>	streamToDeque(std::stringstream &s)
 	return (deque);
 }
 
-std::vector <long>	streamToTemplate(std::stringstream &s)
+template <typename T>
+T	streamToTemplate(std::stringstream &s)
 {
-	std::vector <long>		tmpl;
+	T		tmpl;
 	long	value1;
 	long	value2;
 
@@ -122,7 +104,8 @@ std::vector <long>	streamToTemplate(std::stringstream &s)
 	return (tmpl);
 }
 
-void	tmplSwap(std::vector<long> &tmpl, int gsize, int indl, int indr)
+template <typename T>
+void	tmplSwap(T &tmpl, int gsize, int indl, int indr)
 {
 	long	temp;
 
@@ -136,13 +119,15 @@ void	tmplSwap(std::vector<long> &tmpl, int gsize, int indl, int indr)
 	}
 }
 
-void addToTmpl(std::vector<long> &new_tmpl, std::vector<long> &tmpl, int gsize, int ind)
+template <typename T>
+void addToTmpl(T &new_tmpl, T &tmpl, int gsize, int ind)
 {
 	for (int i = ind - gsize; i < ind; i++)
 		new_tmpl.push_back(tmpl[i]);
 }
 
-void	separateElements(long unsigned gsize, std::vector<long> &tmpl, std::vector<long> &upper, std::vector<long> &lower)
+template <typename T>
+void	separateElements(long unsigned gsize, T &tmpl, T &upper, T &lower)
 {
 	for (int ind = 1; tmpl.size() > gsize * (ind + 1) - 1; ind += 2)
 	{
@@ -153,20 +138,22 @@ void	separateElements(long unsigned gsize, std::vector<long> &tmpl, std::vector<
 	}
 }
 
-void	insertAt(std::vector<long> &upper, int uind, std::vector<long> &lower, int lind, int gsize)
+template <typename T>
+void	insertAt(T &upper, int uind, T &lower, int lind, int gsize)
 {
-	std::vector<long>::iterator uit = upper.begin();
+	typename T::iterator uit = upper.begin();
 
 	for (int ind = 0; ind < gsize; ind++)
 		upper.insert((uit + uind + ind), lower[lind + ind]);
 }
 
-int	tmplfunc(std::vector<long> &tmpl, int gsize, int ind)
+template <typename T>
+int	tmplfunc(T &tmpl, int gsize, int ind)
 {
 	return (tmpl[((ind + 1) * gsize) - 1]);
 }
 
-void	binary/* Insert */(std::vector<long> &upper, int upsize, std::vector<long> &lower, int gsize, int ind)
+void	binary(std::vector<long> &upper, int upsize, std::vector<long> &lower, int gsize, int ind)
 {
 	int	resize = (upsize - 1) / gsize;
 	int	pos;
@@ -222,7 +209,8 @@ int	elev(int nb, int elev)
 	return (number);
 }
 
-void	binaryInsert(std::vector<long> &upper, int pos, int upsize, std::vector<long> &lower, int gsize, int ind, int resize)
+template <typename T>
+void	binaryInsert(T &upper, int pos, int upsize, T &lower, int gsize, int ind, int resize)
 {
 	if (pos < 0)
 		pos = 0;
@@ -246,7 +234,8 @@ void	binaryInsert(std::vector<long> &upper, int pos, int upsize, std::vector<lon
 	}
 }
 
-int	find(std::vector<long> &upper, int ind, int to_find)
+template <typename T>
+int	find(T &upper, int ind, int to_find)
 {
 	while (upper[ind] != to_find)
 		ind++;
@@ -294,8 +283,50 @@ void organizeGroups(long unsigned gsize, std::vector<long> &tmpl)
 	tmpl = upper;
 }
 
-// template <typename T>
-void	FordJohnson(unsigned long gsize, std::vector<long> &tmpl)
+
+void organizeGroups(long unsigned gsize, std::deque<long> &tmpl)
+{
+	std::deque<long>	upper;
+	std::deque<long>	lower;
+
+	//upper.reserve(tmpl.size());
+	separateElements(gsize, tmpl, upper, lower);
+	std::deque<long>	copy = upper;
+	insertAt(upper, 0, lower, 0, gsize);
+	int	jind = 3;
+	int	oldind;
+	int	pos;
+	int	flag = 0;
+	while (1)
+	{
+		oldind = jacobsthal(jind - 1);
+		pos = jacobsthal(jind) - 1;
+		while (lower.size() <= ((pos) * gsize))
+		{
+			flag = 1;
+			pos--;
+		}
+		for (int ind = pos; ind >= oldind; ind--)
+		{
+			if (copy.size() > ((ind + 1) * gsize) - 1)
+			{
+				int nb = find(upper, oldind, tmplfunc(copy, gsize, ind)) / gsize;
+				binaryInsert(upper, (nb - 1) / 2, nb - 1, lower, gsize, ind, elev(2, jind - 2));
+			}
+			else
+				binaryInsert(upper, (upper.size() / gsize - 1) / 2, upper.size() / gsize - 1, lower, gsize, ind, elev(2, jind - 2));
+		}
+		if (flag)
+			break ;
+		jind++;
+	}
+	for(size_t	ind = upper.size(); ind < tmpl.size(); ind++)
+		upper.push_back(tmpl[ind]);
+	tmpl = upper;
+}
+
+template <typename T>
+void	FordJohnson(unsigned long gsize, T &tmpl)
 {
 	for(int ind = 1; tmpl.size() > gsize * (ind + 1) - 1; ind += 2)
 		if (tmpl[gsize * ind - 1] > tmpl[gsize * (ind + 1) - 1])
@@ -307,6 +338,27 @@ void	FordJohnson(unsigned long gsize, std::vector<long> &tmpl)
 
 # include <algorithm>
 
+template <typename T>
+void	print_templ(T templ)
+{
+	for (typename T::iterator it = templ.begin(); it != templ.end(); it++)
+		std::cout << ' ' << *it;
+	std::cout << std::endl;
+}
+
+//long	total_time(void)
+//{
+//	 static long		flag;
+//	static struct timeval	start;
+//	struct timeval			curr;
+//	long					ret;
+
+//	if (++flag == 1)
+//		gettimeofday(&start, NULL);
+//	gettimeofday(&curr, NULL);
+//	ret = MEGA * (curr.tv_sec - start.tv_sec) + curr.tv_usec - start.tv_usec;
+//	return (ret);
+//}
 
 PmergeMe::PmergeMe(char **mat)
 {
@@ -327,18 +379,35 @@ PmergeMe::PmergeMe(char **mat)
 		}
 	}
 	// startTimer();
-	std::vector <long> tmpl = streamToTemplate(s); 
+
+	std::vector <long> tmpl = streamToTemplate<std::vector <long>>(s);
+
+	std::cout << "Before: ";
+	print_templ(tmpl);
+	std::cout << std::endl;
+
 	FordJohnson(1, tmpl);
-	if (std::is_sorted(tmpl.begin(), tmpl.end()))
-		std::cout << "is sorted" << std::endl;
-	else
-		std::cout << "its not" << std::endl;
 
+	std::cout << "After: ";
+	print_templ(tmpl);
+	std::cout << std::endl;
 	// endTimer();
-
+	s.seekp(0);
+	s.seekg(0);
 	// startTimer();
-	// FordJohnson(2, streamToTemplate<std::Deque<long>>(s));
+	std::deque <long> tmpl2 = streamToTemplate<std::deque <long>>(s);
+
+	std::cout << "Before: ";
+	print_templ(tmpl2);
+	std::cout << std::endl;
+
+	FordJohnson(1, tmpl2);
+
+	std::cout << "After: ";
+	print_templ(tmpl2);
+	std::cout << std::endl;
 	// endTimer();
+
 }
 
 PmergeMe::~PmergeMe()

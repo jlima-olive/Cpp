@@ -17,6 +17,7 @@
 #include <sstream>
 #include <deque>
 #include <vector>
+#include <list>
 #include <cstdlib>
 
 class PmergeMe
