@@ -339,6 +339,7 @@ void	FordJohnson(unsigned long gsize, T &tmpl)
 }
 
 # include <algorithm>
+# include <sys/time.h>
 
 template <typename T>
 void	print_templ(T templ)
@@ -348,19 +349,22 @@ void	print_templ(T templ)
 	std::cout << std::endl;
 }
 
-//long	total_time(void)
-//{
-//	 static long		flag;
-//	static struct timeval	start;
-//	struct timeval			curr;
-//	long					ret;
+float	total_time(int n)
+{
+	 static long		flag;
+	static struct timeval	start;
+	struct timeval			curr;
+	float					ret;
 
-//	if (++flag == 1)
-//		gettimeofday(&start, NULL);
-//	gettimeofday(&curr, NULL);
-//	ret = MEGA * (curr.tv_sec - start.tv_sec) + curr.tv_usec - start.tv_usec;
-//	return (ret);
-//}
+	if (n == 1)
+	{
+		gettimeofday(&start, NULL);
+		return (0);
+	}
+	gettimeofday(&curr, NULL);
+	ret = 1000000 * (curr.tv_sec - start.tv_sec) + curr.tv_usec - start.tv_usec;
+	return (ret / 1000000);
+}
 
 PmergeMe::PmergeMe(char **mat)
 {
@@ -380,35 +384,22 @@ PmergeMe::PmergeMe(char **mat)
 			s << " " << str;
 		}
 	}
-	// startTimer();
-
 	std::vector <long> tmpl = streamToTemplate<std::vector <long>>(s);
 
 	std::cout << "Before: ";
 	print_templ(tmpl);
-	std::cout << std::endl;
-
+	total_time(1);
 	FordJohnson(1, tmpl);
-
+	total_time(0);
 	std::cout << "After: ";
 	print_templ(tmpl);
-	std::cout << std::endl;
-	// endTimer();
+	std::cout << "Time to process a range of " << tmpl.size() << " elements with std::vector : " << total_time(0) << " s" << std::endl;
 	s.seekp(0);
 	s.seekg(0);
-	// startTimer();
 	std::deque <long> tmpl2 = streamToTemplate<std::deque <long>>(s);
-
-	std::cout << "Before: ";
-	print_templ(tmpl2);
-	std::cout << std::endl;
-
+	total_time(1);
 	FordJohnson(1, tmpl2);
-
-	std::cout << "After: ";
-	print_templ(tmpl2);
-	std::cout << std::endl;
-	// endTimer();
+	std::cout << "Time to process a range of " << tmpl.size() << " elements with std::deque  : " << total_time(0) << " s" << std::endl;
 
 }
 
