@@ -10,8 +10,14 @@ int main()
 	Span sp = Span(20);
 	std::vector<int>::iterator it = arr.begin();
 	sp.insert(it, arr.size());
-//
-	sp.addNumber(20);
+	try
+	{
+		sp.addNumber(20);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	//sp.addNumber(3);
 	//sp.addNumber(17);
 	//sp.addNumber(9);
