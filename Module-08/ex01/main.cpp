@@ -12,7 +12,7 @@ int main()
 	sp.insert(it, arr.size());
 	try
 	{
-		sp.addNumber(20);
+		sp.addNumber(30);
 	}
 	catch (std::exception &e)
 	{
