@@ -78,7 +78,7 @@ void RPN::revPolNot(std::string str)
 						st.push(d2 * d1);
 						break;
 					case '/':
-						if (d1 == '0')
+						if (d1 == 0)
 							throw (Error());
 						st.push(d2 / d1);
 						break;

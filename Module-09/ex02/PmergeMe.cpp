@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlima-so <jlima-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlima-so <jlima-so@student.42lisba.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:16:32 by jlima-so          #+#    #+#             */
-/*   Updated: 2025/12/31 00:47:08 by jlima-so         ###   ########.fr       */
+/*   Updated: 2026/04/01 20:09:04 by jlima-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -351,7 +351,6 @@ void	print_templ(T templ)
 
 float	total_time(int n)
 {
-	 static long		flag;
 	static struct timeval	start;
 	struct timeval			curr;
 	float					ret;
@@ -384,7 +383,7 @@ PmergeMe::PmergeMe(char **mat)
 			s << " " << str;
 		}
 	}
-	std::vector <long> tmpl = streamToTemplate<std::vector <long>>(s);
+	std::vector <long> tmpl = streamToTemplate<std::vector <long> >(s);
 
 	std::cout << "Before: ";
 	print_templ(tmpl);
@@ -396,7 +395,7 @@ PmergeMe::PmergeMe(char **mat)
 	std::cout << "Time to process a range of " << tmpl.size() << " elements with std::vector : " << total_time(0) << " s" << std::endl;
 	s.seekp(0);
 	s.seekg(0);
-	std::deque <long> tmpl2 = streamToTemplate<std::deque <long>>(s);
+	std::deque <long> tmpl2 = streamToTemplate<std::deque <long> >(s);
 	total_time(1);
 	FordJohnson(1, tmpl2);
 	std::cout << "Time to process a range of " << tmpl.size() << " elements with std::deque  : " << total_time(0) << " s" << std::endl;
