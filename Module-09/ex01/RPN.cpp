@@ -6,20 +6,27 @@ RPN::RPN()
 	std::cout << "RPN copy assignment operator called" << std::endl;
 }
 
-std::stack<char> const &RPN::getExp() const
-{
-	return (exp);
-}
+//RPN::RPN(RPN &ref) :
+//digit(ref.digit),
+//symb(ref.symb)
+//{
+	//std::cout << "RPN copy constructor" << std::endl;
+//}
 
 RPN::RPN(RPN &ref) :
-exp(ref.exp)
+st(ref.st)
 {
 	std::cout << "RPN copy constructor" << std::endl;
 }
 
+std::stack<int> const &RPN::getSt() const
+{
+	return (st);
+}
+
 RPN	&RPN::operator=(RPN &ref)
 {
-	exp = ref.getExp();
+	st = ref.getSt();
 	std::cout << "RPN copy assignment operator called" << std::endl;
 	return (*this);
 }
@@ -29,69 +36,61 @@ RPN::~RPN()
 
 }
 // "0 1 / 2 * 3 + 2 - 5 +"
-int	RPN::useStack()
-{
-	char	ch;
-	char	ch2;
-
-	if (exp.empty())
-		throw (Error());
-	ch = exp.top();
- 	exp.pop();
-	if (exp.empty() && isdigit(ch))
-		return (ch - 48);
-	if (exp.empty() || exp.top() != ' ')
-		throw (Error());
-	exp.pop();
-	if (exp.empty() || isdigit(exp.top()) == 0)
-		throw (Error());
-	ch2 = exp.top();
-	exp.pop();
-	if (exp.empty() || exp.top() != ' ')
-		throw (Error());
-	exp.pop();
-	if (exp.empty())
-		throw (Error());
-	switch (ch)
-	{
-	case '+':
-		return ((ch2 - 48) + useStack());
-	case '-':
-		return (useStack() - (ch2 - 48));
-	case '*':
-		return ((ch2 - 48) * useStack());
-	case '/':
-		if (ch2 == '0')
-			throw (Error());
-		return (useStack() / (ch2 - 48));
-	default:
-		throw (Error());
-	}
-}
 
 const char *RPN::Error::what() const throw()
 {
 	return ("Error");
 } 
+#include <stdlib.h>
 
 void RPN::revPolNot(std::string str)
 {
-	std::stringstream	s(str);
+	int d1;
+	int d2;
 
-
-	while (!s.eof())
-		exp.push(s.get());
-	exp.pop();
-	// while (!exp.empty())
-	// {
-		// std::cout << exp.top();
-		// exp.pop();
-	// }
-	// std::cout << "exp.top()" << std::endl;
-	// exit(0);
 	try
 	{
-		std::cout << useStack() << std::endl;
+		for (std::string::iterator it = str.begin(); it != str.end(); it++)
+		{
+			while (*it == ' ')
+				it++;
+			if (it == str.end())
+				break;
+			if (isdigit(*it))
+				st.push(*it - 48);
+			else
+			{
+				if (st.size() < 2)
+					throw (Error());
+				d1 = st.top();
+				st.pop();
+				d2 = st.top();
+				st.pop();
+				switch (*it)
+				{
+					case '+':
+						st.push(d2 + d1);
+						break;
+					case '-':
+						st.push(d2 - d1);
+						break;
+					case '*':
+						st.push(d2 * d1);
+						break;
+					case '/':
+						if (d1 == '0')
+							throw (Error());
+						st.push(d2 / d1);
+						break;
+					default:
+						throw (Error());
+				}
+			}
+		}
+		if (st.empty())
+			std::cout << st.top() << std::endl;
+		else
+			throw (Error());
 	}
 	catch (std::exception &e)
 	{

@@ -7,14 +7,15 @@
 class RPN
 {
 private:
-	std::stack<char> exp;
+	std::stack<int> st;
 	int	useStack();
 public:
 	RPN();
 	RPN(RPN &ref);
 	RPN	&operator=(RPN &ref);
 	~RPN();
-	std::stack<char> const &getExp() const;
+	std::stack<int> const &getSt() const;
+
 	void revPolNot(std::string str);
 	class Error : public std::exception
 	{

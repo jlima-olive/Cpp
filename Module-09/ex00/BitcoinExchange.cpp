@@ -128,12 +128,22 @@ int	BitcoinExchange::validOutput(std::string &key, std::stringstream &stream)
 		return (printErrorMsg(BIG, key), 0);
 	if (value < 0)
 		return (printErrorMsg(SMALL, key), 0);
-	std::map<std::string, float>::iterator it = datab.lower_bound(key.substr(0, pos));
-	if (it->first != key.substr(0, pos) && it == datab.begin())
+	std::stringstream strm;
+	strm << year;
+	if (month < 10)
+		strm << '0';
+	strm << month;
+	if (day < 10)
+		strm << '0';
+	strm << day;
+	std::string	input;
+	strm >> input;
+	std::map<std::string, float>::iterator it = datab.lower_bound(input);
+	if (it->first != input && it == datab.begin())
 		return (printErrorMsg(DATE, key), 0);
-	if (it->first != key.substr(0, pos) && it != datab.begin())
+	if (it->first != input && it != datab.begin())
 		it--;
-	std::cout << it->first << " => " << value << " => " << it->second * value <<  std::endl;
+	std::cout << key.substr(0, pos - 1) << " => " << value << " => " << it->second * value <<  std::endl;
 	return (1);
 }
 
@@ -174,7 +184,17 @@ int	BitcoinExchange::validInput(std::string &key, std::stringstream &stream)
 		return (0);
 	if (value < 0)
 		return (0);
-	datab.insert(std::make_pair(key.substr(0, pos), value));
+	std::stringstream strm;
+	strm << year;
+	if (month < 10)
+		strm << '0';
+	strm << month;
+	if (day < 10)
+		strm << '0';
+	strm << day;
+	std::string	input;
+	strm >> input;
+	datab.insert(std::make_pair(input, value));
 	return (1);
 }
 	
