@@ -5,8 +5,7 @@ OBJ_FILES =	${SRC_FILES:.cpp=.o}
 
 CXX =		c++
 
-CXXFLAGS = -I. -std=c++98
-# -Wall -Wextra -Werror
+CXXFLAGS = -I. -std=c++98 -Wall -Wextra -Werror
 
 NAME =		btc
 
