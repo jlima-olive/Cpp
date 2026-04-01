@@ -87,8 +87,10 @@ void RPN::revPolNot(std::string str)
 				}
 			}
 		}
+		int	print = st.top();
+		st.pop();
 		if (st.empty())
-			std::cout << st.top() << std::endl;
+			std::cout << print << std::endl;
 		else
 			throw (Error());
 	}
